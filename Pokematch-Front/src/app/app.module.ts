@@ -19,7 +19,10 @@ import { HomePageComponent } from './home-page/home-page.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
+    /* Need to import so service API can be use. */
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokeApiService } from '../service/poke-api.service';
 
 @Component({
   selector: 'app-element-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElementListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private PokeService: PokeApiService) {}
 
   ngOnInit(): void {
+    this.PokeService.getElementList().then(result => {
+      console.log(result);
+    })
   }
 
 }
