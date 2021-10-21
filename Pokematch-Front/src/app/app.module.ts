@@ -17,7 +17,10 @@ import { ElementListComponent } from './element-list/element-list.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
+    /* Need to import so service API can be use. */
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
