@@ -4,11 +4,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserListComponent } from './user-list/user-list.component';
+import { ElementListComponent } from './element-list/element-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    UserListComponent,
+    ElementListComponent
   ],
   imports: [
     BrowserModule,
