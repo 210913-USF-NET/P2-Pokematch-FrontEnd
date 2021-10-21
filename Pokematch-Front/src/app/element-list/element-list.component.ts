@@ -10,9 +10,11 @@ export class ElementListComponent implements OnInit {
 
   constructor(private PokeService: PokeApiService) {}
 
+  Elements: [] = [];
+
   ngOnInit(): void {
     this.PokeService.getElementList().then(result => {
-      console.log(result);
+      this.Elements = result;
     })
   }
 
