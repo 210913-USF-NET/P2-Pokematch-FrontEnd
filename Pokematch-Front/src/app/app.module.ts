@@ -6,7 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 import { ElementListComponent } from './element-list/element-list.component';
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
+
+import { HomePageComponent } from './home-page/home-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -14,12 +19,18 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     NavBarComponent,
     UserListComponent,
     ElementListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
+    /* Need to import so service API can be use. */
+    HttpClientModule,
+    
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
