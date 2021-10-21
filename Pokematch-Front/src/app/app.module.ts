@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 import { ElementListComponent } from './element-list/element-list.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     UserListComponent,
-    ElementListComponent
+    ElementListComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
