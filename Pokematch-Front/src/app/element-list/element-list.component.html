@@ -1,1 +1,14 @@
-<p>element-list works!</p>
+<div class="container">
+    <h1>Elements</h1>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let element of elements">
+                <td>{{element.name}}</td>
+                <td>{{element.user}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
