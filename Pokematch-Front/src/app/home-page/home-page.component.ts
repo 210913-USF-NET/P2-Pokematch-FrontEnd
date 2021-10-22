@@ -12,8 +12,8 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   loginWithRedirect(): void {
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
 }
