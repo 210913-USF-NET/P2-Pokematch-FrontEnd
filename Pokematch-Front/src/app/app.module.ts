@@ -12,6 +12,9 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { EventEmitterService } from './event-emitter.service';
 import { QuizComponent } from './quiz/quiz.component';
 
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +30,9 @@ import { QuizComponent } from './quiz/quiz.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AuthModule.forRoot({
+      ... env.auth,
+    }),
 
     /* Need to import so service API can be use. */
     HttpClientModule
