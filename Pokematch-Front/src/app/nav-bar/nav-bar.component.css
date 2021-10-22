@@ -1,0 +1,16 @@
+.nav-link {
+    color: #FFFFFF;
+}
+
+.nav-link:hover{
+    color: #00B4E0;
+    cursor: pointer;
+}
+
+.fa-1x {
+    font-size: 1.5rem;
+    }
+
+    .dark-pink-text {
+        color: #AC003A;
+        }
