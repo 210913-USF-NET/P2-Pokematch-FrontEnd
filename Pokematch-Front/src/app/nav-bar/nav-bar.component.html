@@ -21,11 +21,12 @@
                 </li>
             </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right" *ngIf="((auth.isAuthenticated$ | async) == false)">
-            <li><button type="button" class="btn btn-light" (click)="loginWithRedirect()">Login</button></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right" *ngIf="(auth.isAuthenticated$ | async) == true">
-          <li><button type="button" class="btn btn-light" (click)="logout()" >Logout</button></li>
-      </ul>
+        <div *ngIf="(auth.isAuthenticated$ | async) === false">
+            <button type="button" class="btn btn-light" (click)="loginWithRedirect()">Login</button>
+        </div>
+        <div *ngIf="(auth.isAuthenticated$ | async) === true">
+            <button type="button" class="btn btn-light" (click)="logout()" >Logout</button>
+        </div>
+
     </div>
 </nav>
