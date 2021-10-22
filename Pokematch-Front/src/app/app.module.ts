@@ -5,11 +5,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
-import { ElementListComponent } from './element-list/element-list.component';
+import { ElementListComponent } from './element/element-list/element-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { EventEmitterService } from './event-emitter.service';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EventEmitterService } from './event-emitter.service';
     ElementListComponent,
     HomePageComponent,
     UserProfileComponent,
-    PokemonComponent
+    PokemonComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
