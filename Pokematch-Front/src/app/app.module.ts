@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 import { ElementListComponent } from './element-list/element-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { EventEmitterService } from './event-emitter.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     NavBarComponent,
     UserListComponent,
     ElementListComponent,
-    HomePageComponent
+    HomePageComponent,
+    PokemonComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     /* Need to import so service API can be use. */
     HttpClientModule
   ],
-  providers: [],
+  providers: [EventEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
