@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UserListComponent } from './user/user-list/user-list.component';
-import { ElementListComponent } from './element/element-list/element-list.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { PokemonComponent } from './pokemon/pokemon.component';
 import { EventEmitterService } from './event-emitter.service';
-import { QuizComponent } from './quiz/quiz.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { ElementListComponent } from './element/element-list/element-list.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { QuizFormComponent } from './quiz-form/quiz-form.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,19 @@ import { QuizComponent } from './quiz/quiz.component';
     HomePageComponent,
     UserProfileComponent,
     PokemonComponent,
-    QuizComponent
+    QuizFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    
+    AuthModule.forRoot({
+      ... env.auth,
+    }),
+
+    FormsModule,
+    ReactiveFormsModule,
+
     /* Need to import so service API can be use. */
     HttpClientModule
   ],
