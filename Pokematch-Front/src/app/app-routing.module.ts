@@ -5,6 +5,7 @@ import { ElementListComponent } from './element/element-list/element-list.compon
 import { HomePageComponent } from './home-page/home-page.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { EventEmitterService } from './event-emitter.service';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'pokemon',
     component: PokemonComponent
+  },
+  {
+    path: "user-profile",
+    component: UserProfileComponent
   }
 ];
 
