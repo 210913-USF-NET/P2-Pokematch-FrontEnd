@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 import { ElementListComponent } from './element-list/element-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     NavBarComponent,
     UserListComponent,
     ElementListComponent,
-    HomePageComponent
+    HomePageComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
