@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from '../models/element';
 import { PokeApiService } from '../service/poke-api.service';
 
 @Component({
@@ -10,11 +11,11 @@ export class ElementListComponent implements OnInit {
 
   constructor(private PokeService: PokeApiService) {}
 
-  Elements: [] = [];
+  elements: element[] = [];
 
   ngOnInit(): void {
     this.PokeService.getElementList().then(result => {
-      this.Elements = result;
+      this.elements = result;
     })
   }
 

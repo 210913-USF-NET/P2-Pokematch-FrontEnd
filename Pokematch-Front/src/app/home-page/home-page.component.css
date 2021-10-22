@@ -1,0 +1,23 @@
+.ml-1 {
+  padding: 1em;
+}
+
+.container {
+  padding: 1em;
+}
+
+h5 {
+  padding: 1em;
+}
+
+.bg-img {
+  background-image:url('../../assets/img/luvdisc.jpg')
+}
+
+.row {
+  padding: 4em;
+}
+
+.bg-text-color {
+  opacity: 90%;
+}
