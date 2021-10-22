@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from '../models/element';
-import { PokeApiService } from '../service/poke-api.service';
+import { element } from '../../models/element';
+import { PokeApiService } from '../../service/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-element-list',
+  selector: 'element-list',
   templateUrl: './element-list.component.html',
   styleUrls: ['./element-list.component.css']
 })
