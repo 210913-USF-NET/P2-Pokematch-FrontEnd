@@ -10,11 +10,12 @@ export class HomePageComponent implements OnInit {
 
   constructor(public auth: AuthService) { }
 
-  email = "";
   ngOnInit(): void {
     this.auth.user$.subscribe(
-      (profile) => (console.log(profile))
+      (profile) => (console.log(profile),
+      console.log(profile.email))
     )
+    ;
   }
 
   loginWithRedirect(): void {

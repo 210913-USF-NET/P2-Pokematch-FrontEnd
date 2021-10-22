@@ -21,7 +21,7 @@
                 </li>
             </ul>
         </div>
-        <div *ngIf="(auth.isAuthenticated$ | async) === false">
+        <div >
             <button type="button" class="btn btn-light" (click)="loginWithRedirect()">Login</button>
         </div>
         <div *ngIf="(auth.isAuthenticated$ | async) === true">
