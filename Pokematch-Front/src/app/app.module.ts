@@ -14,6 +14,9 @@ import { ElementListComponent } from './element/element-list/element-list.compon
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
 
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,15 +26,19 @@ import { QuizFormComponent } from './quiz-form/quiz-form.component';
     HomePageComponent,
     UserProfileComponent,
     PokemonComponent,
-    QuizFormComponent  
+    QuizFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AuthModule.forRoot({
+      ... env.auth,
+    }),
+
     FormsModule,
     ReactiveFormsModule,
-    
+
     /* Need to import so service API can be use. */
     HttpClientModule
   ],
