@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ElementListComponent } from './element-list/element-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { EventEmitterService } from './event-emitter.service';
 
 const routes: Routes = [
   {
@@ -12,6 +14,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePageComponent
+  },
+  {
+    path: 'pokemon',
+    component: PokemonComponent
   }
 ];
 
@@ -20,6 +26,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)],
+    providers: [EventEmitterService],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

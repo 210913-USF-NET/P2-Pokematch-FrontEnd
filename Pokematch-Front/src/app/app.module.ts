@@ -8,6 +8,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ElementListComponent } from './element-list/element-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { EventEmitterService } from './event-emitter.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     UserListComponent,
     ElementListComponent,
     HomePageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PokemonComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     /* Need to import so service API can be use. */
     HttpClientModule
   ],
-  providers: [],
+  providers: [EventEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
