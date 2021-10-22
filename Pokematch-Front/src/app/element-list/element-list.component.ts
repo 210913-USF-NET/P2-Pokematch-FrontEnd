@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from '../models/element';
 import { PokeApiService } from '../service/poke-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-element-list',
@@ -9,7 +10,7 @@ import { PokeApiService } from '../service/poke-api.service';
 })
 export class ElementListComponent implements OnInit {
 
-  constructor(private PokeService: PokeApiService) {}
+  constructor(private currRoute: ActivatedRoute, private PokeService: PokeApiService) {}
 
   elements: element[] = [];
 
@@ -20,3 +21,4 @@ export class ElementListComponent implements OnInit {
   }
 
 }
+
