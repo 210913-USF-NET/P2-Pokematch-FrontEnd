@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { EventEmitterService } from './event-emitter.service';
-
-
 import { ElementListComponent } from './element/element-list/element-list.component';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { PokemonComponent } from './pokemon/pokemon.component';
-
+import { PokemonComponent } from 'src/pokemonfolder/pokemon/pokemon.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 const routes: Routes = [
   /* ----- Home ----- */
@@ -33,6 +31,12 @@ const routes: Routes = [
   {
     path: 'pokemon',
     component: PokemonComponent
+  },
+
+  /* ----- User ----- */
+  {
+    path: 'userprofile',
+    component: UserProfileComponent
   }
 ];
 
