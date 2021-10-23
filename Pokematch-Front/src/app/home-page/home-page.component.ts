@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.user$.subscribe(
+      (profile) => (console.log(profile),
+      console.log(profile.email))
+    )
+    ;
   }
 
+  loginWithRedirect(): void {
+    this.auth.loginWithRedirect({ screen_hint: 'signup' });
+  }
 }

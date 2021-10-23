@@ -16,6 +16,12 @@ Team Members
    
 ### Overview
 - Tables
+    - User
+    - Element
+    - Pokemon
+    - Match
+    - Message
+    - Move
 - Features
     - Register users with username, password, type (backend)
     - Logging in using username and password or with an existing Gmail account (backend)

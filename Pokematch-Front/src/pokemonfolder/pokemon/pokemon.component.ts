@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventEmitterService } from '../../app/event-emitter.service';
 import { pokemon } from '../../app/models/pokemon';
 var pokelist: pokemon[] = [];
 var pokenames: pokemon[] = [];
 var poketype: pokemon[] = [];
+var profilepic: pokemon[] = []; 
+var favoritepokemon: pokemon[] = [];
+const page = window.open('nav-bar.component.html');
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
@@ -11,7 +15,7 @@ var poketype: pokemon[] = [];
 })
 export class PokemonComponent implements OnInit {
 
-  constructor(private eventEmitterService: EventEmitterService) { }
+  constructor(private eventEmitterService: EventEmitterService, private route: Router) { }
   
   ngOnInit() {
     // if (this.eventEmitterService.subsVar==undefined) {    
@@ -69,8 +73,26 @@ export class PokemonComponent implements OnInit {
       }
     }
 
-    selectedPokemon(name: string)
+    selectedPokemon(name: number)
     {
-      
+      if(profilepic[0] == null)
+      {
+      alert("You have chosen " + pokenames[name - 1] + " for your profile picture!");
+      profilepic.push(pokelist[name-1]);
+      document.getElementById('profilepic').innerHTML =  '<img src="' + pokelist[name-1] + ('" /><img src="') + 'width = "50"' + 'height="50"'
+      document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
+      return;
+      } 
+      if(favoritepokemon[2] != null)
+      {
+        alert("You may only select 3 favorite pokemon");
+        console.log(favoritepokemon);
+        console.log(profilepic);
+        return;
+      }
+      alert("You have selected " + pokenames[name -1])
+      favoritepokemon.push(pokenames[name-1]);
+      return;
+      // this.route.navigate(['/pokemonselection'])
     }
 }
