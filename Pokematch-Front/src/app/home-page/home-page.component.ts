@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import {user} from '../models/user';
+import { UserApiService } from '../service/user-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -8,8 +11,8 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
-
+  constructor(private currRoute: ActivatedRoute, private userService:UserApiService,  private router: Router, public auth: AuthService) { }
+  
   ngOnInit(): void {
     this.auth.user$.subscribe(
       (profile) => (console.log(profile),
@@ -21,4 +24,8 @@ export class HomePageComponent implements OnInit {
   loginWithRedirect(): void {
     this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
+
+
+
 }
+

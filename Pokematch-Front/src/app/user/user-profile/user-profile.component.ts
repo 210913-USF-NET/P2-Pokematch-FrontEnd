@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { UserApiService } from '../../service/user-api.service';
+import {user} from '../../models/user';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,12 +11,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    
-  ) { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: UserApiService) { }
 
+    id: 0;
+    user: user = {
+    id: 0,
+    name: '',
+    element: [],
+    };
   ngOnInit(): void {
+    this.currentRoute.queryParams.subscribe(params => {
+    this.id = params['id'];
+    this.UserService.getUserById(this.id).then(user => {
+      this.user = user;
+    });
+  });
   }
 
 }

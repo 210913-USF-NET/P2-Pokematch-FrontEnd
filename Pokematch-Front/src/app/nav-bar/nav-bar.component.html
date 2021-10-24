@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #FF9FB2;">
     <div class="container-fluid">
         <a class="navbar-brand"><img src="assets/img/pokematch.png" height="45"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1"
-            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="dark-pink-text"><i class="fas fa-bars fa-1x"></i></span></button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <button class="btn btn-danger" (click)="loginWithRedirect()">
+            <button class="btn btn-danger" (click)="loginWithRedirect()">
                 Force Login
-              </button>
+            </button>
                 <li class="nav-item">
                     <a class="nav-link active" routerLink="">Home</a>
                 </li>
@@ -24,7 +24,7 @@
                 </li>
             </ul>
             <div class="dropdown" style="float: right;" *ngIf="(auth.isAuthenticated$ | async) === true">
-                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" width="70" height="70"></button>
+                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" class= "rounded" width="70" height="70"></button>
                 <div class="dropdown-content">
                     <div>
                         <button type="button" class="btn btn-light" routerLink="userprofile">user</button>

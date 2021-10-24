@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { element } from '../models/element';
 import {user} from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PokeApiService {
-  rootUrl: string = 'https://pokematch.azurewebsites.net/api/element';
+export class UserApiService {
+  rootUrl: string = 'https://pokematch.azurewebsites.net/api/user';
 
   /* Dependency injection. */
   constructor(private http: HttpClient) { }
 
-  getElementList(): Promise<element[]> 
+  getUserById(id: number): Promise<user> 
   {
-    return this.http.get<[]>(this.rootUrl).toPromise();
+    return this.http.get<user>(this.rootUrl + "/" + id).toPromise();
   }
 }
-
