@@ -13,6 +13,6 @@ export class UserApiService {
 
   getUserById(id: number): Promise<user> 
   {
-    return this.http.get<user>(this.rootUrl).toPromise();
+    return this.http.get<user>(this.rootUrl + "/" + id).toPromise();
   }
 }

@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   }
 
   goToUserProfile(userId: number): void {
-  this.router.navigate('users/${userId}');
+  this.router.navigate(['users/'+userId]);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { UserApiService } from '../../service/user-api.service';
 import {user} from '../../models/user';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,8 +11,7 @@ import {user} from '../../models/user';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(
-    private currentRoute: ActivatedRoute, private UserService: UserApiService) { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: UserApiService) { }
 
     id: 0;
     user: user = {
@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
     element: [],
     };
   ngOnInit(): void {
-    this.currentRoute.params.subscribe(params => {
+    this.currentRoute.queryParams.subscribe(params => {
     this.id = params['id'];
     this.UserService.getUserById(this.id).then(user => {
       this.user = user;
