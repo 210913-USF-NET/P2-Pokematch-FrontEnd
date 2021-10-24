@@ -5,7 +5,7 @@ import { EventEmitterService } from './event-emitter.service';
 import { ElementListComponent } from './element/element-list/element-list.component';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { PokemonComponent } from 'src/pokemonfolder/pokemon/pokemon.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 const routes: Routes = [
