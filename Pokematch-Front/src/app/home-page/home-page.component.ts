@@ -12,8 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   constructor(private currRoute: ActivatedRoute, private userService:UserApiService,  private router: Router, public auth: AuthService) { }
-  user: user;
-  isLoggedIn: boolean = false;
+  
   ngOnInit(): void {
     this.auth.user$.subscribe(
       (profile) => (console.log(profile),
@@ -26,9 +25,7 @@ export class HomePageComponent implements OnInit {
     this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
 
-  goToUserProfile(userId: number): void {
-  this.router.navigate(['users/'+userId]);
-  }
+
 
 }
 
