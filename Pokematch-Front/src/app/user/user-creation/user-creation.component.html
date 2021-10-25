@@ -1,0 +1,8 @@
+<div class="login-wrapper">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <label for="username">Username: </label>
+        <input id="username" type="text" formControlName="username">
+        <button type="submit">Submit</button>
+    </form>
+</div>
