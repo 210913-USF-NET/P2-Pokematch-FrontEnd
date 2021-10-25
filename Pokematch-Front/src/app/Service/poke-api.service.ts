@@ -8,6 +8,7 @@ import {user} from '../models/user';
 })
 export class PokeApiService {
   rootUrl: string = 'https://pokematch.azurewebsites.net/api/element';
+  baoUrl: string = 'https://pokematch.azurewebsites.net/api/user';
 
   /* Dependency injection. */
   constructor(private http: HttpClient) { }
@@ -15,6 +16,16 @@ export class PokeApiService {
   getElementList(): Promise<element[]> 
   {
     return this.http.get<[]>(this.rootUrl).toPromise();
+  }
+
+  getUserById(id: number): Promise<user> 
+  {
+    return this.http.get<user>(this.baoUrl +'/'+id).toPromise();
+  }
+
+  getUserList(): Promise<user[]>
+  {
+    return this.http.get<[]>(this.baoUrl).toPromise();
   }
 }
 

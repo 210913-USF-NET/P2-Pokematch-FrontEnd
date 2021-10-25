@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserApiService } from 'src/app/service/user-api.service';
+import { PokeApiService } from 'src/app/service/poke-api.service';
 import { UserProfileComponent } from './user-profile.component';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -8,7 +8,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 describe('UserProfileComponent', () => {
   let component: UserProfileComponent;
   let fixture: ComponentFixture<UserProfileComponent>;
-  let service: UserApiService;
+  let service: PokeApiService;
   
 
   beforeEach(async () => {
