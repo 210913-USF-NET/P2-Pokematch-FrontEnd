@@ -40,7 +40,7 @@ import { environment as env } from '../environments/environment';
     /* Need to import so service API can be use. */
     HttpClientModule
   ],
-  providers: [EventEmitterService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { EventEmitterService } from './event-emitter.service';
 import { ElementListComponent } from './element/element-list/element-list.component';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -45,7 +44,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)],
-    providers: [EventEmitterService],
+    providers: [],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

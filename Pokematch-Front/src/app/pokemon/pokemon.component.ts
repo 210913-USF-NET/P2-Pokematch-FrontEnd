@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventEmitterService } from '../../app/event-emitter.service';
 import { pokemon } from '../../app/models/pokemon';
 var pokelist: pokemon[] = [];
 var pokenames: pokemon[] = [];
@@ -15,13 +14,9 @@ const page = window.open('nav-bar.component.html');
 })
 export class PokemonComponent implements OnInit {
 
-  constructor(private eventEmitterService: EventEmitterService, private route: Router) { }
+  constructor(private route: Router) { }
   
   ngOnInit() {
-    // if (this.eventEmitterService.subsVar==undefined) {    
-    //   this.eventEmitterService.subsVar = this.eventEmitterService.    
-    //   invokeFirstComponentFunction.subscribe((name:string) => {    
-    //     this.getPokemon(name);  
     for(let i = 0; i <= 9; i++)
 {
   this.getPokemon(i);

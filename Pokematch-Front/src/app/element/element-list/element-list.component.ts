@@ -17,6 +17,7 @@ export class ElementListComponent implements OnInit {
   ngOnInit(): void {
     this.PokeService.getElementList().then(result => {
       this.elements = result;
+      console.log(this.elements);
     })
   }
 

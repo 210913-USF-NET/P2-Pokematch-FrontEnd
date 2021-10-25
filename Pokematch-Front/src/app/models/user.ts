@@ -4,4 +4,5 @@ export interface user
     id: number;
     name: string;
     element: element[];
+    email: string;
 }
