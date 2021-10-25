@@ -14,6 +14,7 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { UserCreationComponent } from './user-creation/user-creation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment as env } from '../environments/environment';
     HomePageComponent,
     UserProfileComponent,
     PokemonComponent,
-    QuizFormComponent
+    QuizFormComponent,
+    UserCreationComponent
   ],
   imports: [
     BrowserModule,

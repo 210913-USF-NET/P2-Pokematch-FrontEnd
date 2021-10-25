@@ -6,6 +6,7 @@ import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserCreationComponent } from './user-creation/user-creation.component';
 
 const routes: Routes = [
   /* ----- Home ----- */
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'userprofile',
     component: UserProfileComponent
+  },
+
+  {
+    path: 'user-creation',
+    component: UserCreationComponent
   }
 ];
 
