@@ -27,10 +27,10 @@
                 </li>
             </ul>
             <div class="dropdown" style="float: right;" *ngIf="(auth.isAuthenticated$ | async) === true">
-                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" class= "rounded" width="70" height="70"></button>
+                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" alt="Avatar" class="avatar"></button>
                 <div class="dropdown-content">
                     <div>
-                        <button type="button" class="btn btn-light" routerLink="userprofile">user</button>
+                        <button type="button" class="btn btn-light" routerLink="userprofile">Profile</button>
                     </div>
                     <div *ngIf="(auth.isAuthenticated$ | async) === true">
                         <button type="button" class="btn btn-light" (click)="logout()" >Logout</button>
