@@ -43,10 +43,6 @@ export class UserProfileComponent implements OnInit {
     })
   };
 }
-
-
-
-
 // @Component({
 //   selector: 'element-list',
 //   templateUrl: './element-list.component.html',

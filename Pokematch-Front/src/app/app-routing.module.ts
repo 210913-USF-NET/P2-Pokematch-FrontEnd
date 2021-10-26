@@ -7,6 +7,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserCreationComponent } from './user/user-creation/user-creation.component';
+import { BufferComponent } from './buffer/buffer.component';
+import { MessageComponent } from './message/message.component';
 
 const routes: Routes = [
   /* ----- Home ----- */
@@ -14,7 +16,7 @@ const routes: Routes = [
     path: '',
     component: HomePageComponent
   },
-  
+
   /* ----- Element ----- */
   {
     path: 'elements',
@@ -39,9 +41,22 @@ const routes: Routes = [
     component: UserProfileComponent
   },
 
+  /* ----- User Creation ----- */
   {
     path: 'user-creation',
     component: UserCreationComponent
+  },
+
+  /* ----- Buffer ----- */
+  {
+    path: 'buffer',
+    component: BufferComponent
+  },
+
+  /* ----- Message ----- */
+  {
+    path: 'message',
+    component: MessageComponent
   }
 ];
 
