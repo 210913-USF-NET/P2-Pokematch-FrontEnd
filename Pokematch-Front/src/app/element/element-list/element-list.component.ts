@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from '../../models/element';
-import { PokeApiService } from 'src/app/Service/poke-api.service';
+import { PokeApiService } from 'src/app/service/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserCreationService } from 'src/app/Service/user-creation.service';
 
 @Component({
   selector: 'element-list',

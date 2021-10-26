@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dictionary } from '../data structure/dictionary';
 import { quiz } from '../models/quiz';
-import { QuizFormService } from '../Service/quiz-form.service';
+import { QuizFormService } from '../service/quiz-form.service';
 
 @Component({
   selector: 'app-quiz-form',
