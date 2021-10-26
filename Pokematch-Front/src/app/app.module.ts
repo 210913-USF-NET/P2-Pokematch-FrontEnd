@@ -44,7 +44,7 @@ import { UserCreationComponent } from './user/user-creation/user-creation.compon
     /* Need to import so service API can be use. */
     HttpClientModule
   ],
-  providers: [EventEmitterService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

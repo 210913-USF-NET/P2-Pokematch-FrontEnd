@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import {user} from '../models/user';
-import { UserApiService } from '../service/user-api.service';
+import { PokeApiService } from '../Service/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private userService:UserApiService,  private router: Router, public auth: AuthService) { }
+  constructor(private currRoute: ActivatedRoute, private userService: PokeApiService,  private router: Router, public auth: AuthService) { }
   
   ngOnInit(): void {
     this.auth.user$.subscribe(
@@ -28,4 +28,3 @@ export class HomePageComponent implements OnInit {
 
 
 }
-

@@ -2,16 +2,16 @@
   padding: 1em;
 }
 
-.container {
-  padding: 1em;
-}
-
 h5 {
   padding: 1em;
 }
 
-.bg-img {
-  background-image:url('../../assets/img/luvdisc.jpg')
+body{
+  background-image:url('https://images-ext-2.discordapp.net/external/q_MDMUdLFhGtp-S-wuQ7KB3jizsQ8oUPGaePBIbuVTo/https/78.media.tumblr.com/c43c55410325784ed2c64775717d0376/tumblr_ou26jjF09P1rd4ymxo4_500.gif')
+}
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .row {

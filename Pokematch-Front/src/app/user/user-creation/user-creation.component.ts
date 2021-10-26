@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { userCreation } from 'src/app/models/userCreation';
 import { PokeApiService } from 'src/app/Service/poke-api.service';
 import { UserCreationService } from 'src/app/Service/user-creation.service';
+import { user } from 'src/app/models/user';
 
 
 @Component({
@@ -22,10 +23,6 @@ export class UserCreationComponent implements OnInit {
   constructor(private currRoute: ActivatedRoute, private userService: UserCreationService, private pokeService: PokeApiService, ) { }
 
   ngOnInit(): void {
-    this.pokeService.getUserList().then(r =>
-      {
-        this.user = r;
-      });
   }
 
   onSubmit() {
