@@ -17,9 +17,11 @@ export class UserProfileComponent implements OnInit {
 
   user: user = {
     id: 0,
-    name: '',
-    element: [],
+    username: '',
     email: '',
+    gender: '',
+    interest: '',
+    element: []
   };
 
   ngOnInit(): void {

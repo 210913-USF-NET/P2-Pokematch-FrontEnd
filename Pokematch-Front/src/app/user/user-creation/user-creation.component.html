@@ -1,8 +1,13 @@
-<div class="login-wrapper">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<div class="col-mid-4 mb-3">
+    <label>Username</label>
+    <div class="input-group">
+        <span class="input-group-text">@</span>
+        <div>
+            <input type="text" class="form-control" [formControl]="username" [class.is-invalid]="username.invalid && username.errors?.userExists" [class.is-valid]="username.valid">
 
-        <label for="username">Username: </label>
-        <input id="username" type="text" formControlName="username">
-        <button type="submit">Submit</button>
-    </form>
+            <div class="invalid-feedback">
+                Username already exists
+            </div>
+        </div>
+    </div>
 </div>
