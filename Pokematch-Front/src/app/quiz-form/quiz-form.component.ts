@@ -10,8 +10,12 @@ import { QuizFormService } from '../service/quiz-form.service';
 })
 export class QuizFormComponent implements OnInit {
   
-  dict = new Dictionary();
-  quiz: quiz[] = [];
+  dict = new Dictionary()
+  quiz: quiz[] = []
+
+  type = ['fire', 'water', 'grass']
+  point = []
+
 
   currQues = 0;
 
@@ -25,40 +29,23 @@ export class QuizFormComponent implements OnInit {
   {
     if (type === 'fire') 
     {
-      if (!this.dict.has('fire'))
-      {
-        this.dict.set('fire', point);
-      }
-      else 
-      {
-        this.dict.set('fire', this.dict.get('fire') + point);
-      }
+      point[0]++
+      
+      console.log(point[0]);
 
       this.currQues++;
     }
     else if (type == 'water') 
     {
-      if (!this.dict.has('water'))
-      {
-        this.dict.set('water', point);
-      }
-      else 
-      {
-        this.dict.set('water', this.dict.get('water') + point);
-      }
+      point[1]++
+      console.log(point[1]);
 
       this.currQues++;
     }
     else if (type == 'grass') 
     {
-      if (!this.dict.has('grass'))
-      {
-        this.dict.set('grass', point);
-      }
-      else 
-      {
-        this.dict.set('grass', this.dict.get('grass') + point);
-      }
+      point[2]++
+      console.log(point[2]);
 
       this.currQues++;
     }
