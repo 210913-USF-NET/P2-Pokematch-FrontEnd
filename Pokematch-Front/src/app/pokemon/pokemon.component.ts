@@ -6,7 +6,7 @@ var pokenames: pokemon[] = [];
 var poketype: pokemon[] = [];
 var profilepic: pokemon[] = []; 
 var favoritepokemon: pokemon[] = [];
-const page = window.open('nav-bar.component.html');
+
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
