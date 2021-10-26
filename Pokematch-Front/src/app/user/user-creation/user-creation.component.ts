@@ -6,7 +6,7 @@ import { UserCreationService } from 'src/app/service/user-creation.service';
 import { of, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { user } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,22 +15,29 @@ import { user } from 'src/app/models/user';
   styleUrls: ['./user-creation.component.css']
 })
 export class UserCreationComponent implements OnInit {
-  // profileForm = new FormGroup({
-  //   username: new FormControl('')
-  // });
+  username!: FormControl
+  gender: FormControl
+  interest: FormControl
 
-  username!: FormControl;
-
-  user:user[] = []
   usernames = []
 
-  constructor(private currRoute: ActivatedRoute, private userService: UserCreationService, private pokeService: PokeApiService, private fb: FormBuilder) { }
+  constructor(private router: Router, private currRoute: ActivatedRoute, private userService: UserCreationService, private pokeService: PokeApiService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.username = this.fb.control(
       null,
       Validators.required,
       this.userValidator()
+    )
+
+    this.gender = this.fb.control(
+      null,
+      Validators.required
+    )
+
+    this.interest = this.fb.control(
+      null,
+      Validators.required
     )
   }
 
@@ -41,18 +48,22 @@ export class UserCreationComponent implements OnInit {
       }
     })
 
+    console.log(of(this.usernames.includes(username.toLowerCase())))
+
     return of(this.usernames.includes(username.toLowerCase()))
   }
 
   private userValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> =>
       this.userExists(control.value).pipe(
-        map((response) => (response ? { userExists: true } : null))
+        map((response) => (response ? {
+           userExists: true, flag : true } : null))
       )
   }
 
   onSubmit() {
-
+    if (this.username.valid) {
+      this.router.navigate(['quiz'])
+    }
   }
-
 }

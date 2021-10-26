@@ -1,16 +1,49 @@
-<form action="">
-    <div class="col-mid-4 mb-3">
-        <label>Username</label>
-        <div class="input-group">
-            <div>
-                <input type="text" class="form-control" [formControl]="username" [class.is-invalid]="username.invalid && username.errors?.userExists" [class.is-valid]="username.valid">
-    
-                <div class="invalid-feedback">
-                    Username already exists
+<div class="login-wrapper">
+    <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <div class="col-mid-4 mb-3">
+            <div class="input-group form-group">
+                <div>
+                    <h1>Choose a username</h1>
+                    <input type="text" class="form-control" [formControl]="username" placeholder="username"
+                        [class.is-invalid]="username.invalid && username.errors?.userExists"
+                        [class.is-valid]="username.valid" required>
+
+                    <div class="invalid-feedback">
+                        Username already exists
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <button type="submit">Submit</button>
-</form>
+            <br>
+            <br>
+
+            <div class="form-input">
+                <h1>Select your gender</h1>
+
+                <select [formControl]="gender" required>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                    <option value="o">Other</option>
+                </select>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-input">
+                <h1>Select your interest</h1>
+
+                <select [formControl]="interest" required>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                    <option value="o">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <button  type="submit">Submit</button>
+    </form>
+</div>
