@@ -16,7 +16,7 @@ constructor(public auth: AuthService,
 ngOnInit(): void {
 }
   loginWithRedirect(): void {
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect({ appState: { target: '/userprofile'} });
   }
 
   logout(): void {
