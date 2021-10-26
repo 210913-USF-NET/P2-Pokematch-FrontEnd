@@ -43,6 +43,10 @@ export class UserProfileComponent implements OnInit {
     })
   };
 
+  checkMessage(): void {
+
+  }
+
 }
 
 
