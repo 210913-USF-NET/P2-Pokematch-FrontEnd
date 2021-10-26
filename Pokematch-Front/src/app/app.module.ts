@@ -13,6 +13,8 @@ import { QuizFormComponent } from './quiz-form/quiz-form.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { UserCreationComponent } from './user/user-creation/user-creation.component';
+import { MessageComponent } from './message/message.component';
+import { BufferComponent } from './buffer/buffer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UserCreationComponent } from './user/user-creation/user-creation.compon
     UserProfileComponent,
     PokemonComponent,
     QuizFormComponent,
-    UserCreationComponent
+    UserCreationComponent,
+    MessageComponent,
+    BufferComponent
   ],
   imports: [
     FormsModule,
