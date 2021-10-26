@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
   }
 
   loginWithRedirect(): void {
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect({ appState: { target: '/userprofile'} });
   }
 
   logout(): void {
