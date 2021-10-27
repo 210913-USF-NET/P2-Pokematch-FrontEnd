@@ -15,6 +15,7 @@ import { environment as env } from '../environments/environment';
 import { UserCreationComponent } from './user/user-creation/user-creation.component';
 import { MessageComponent } from './message/message.component';
 import { BufferComponent } from './buffer/buffer.component';
+import { MatchComponent } from './match/match.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BufferComponent } from './buffer/buffer.component';
     QuizFormComponent,
     UserCreationComponent,
     MessageComponent,
-    BufferComponent
+    BufferComponent,
+    MatchComponent
   ],
   imports: [
     FormsModule,

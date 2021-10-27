@@ -1,19 +1,23 @@
 <body>
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="card p-3">
-        <div class="d-flex align-items-center">
-            <div class="image" id="yup" class="rounded" width="155"></div>
-            <div class="ml-3 w-100">
-                <h4 class="mb-0 mt-0">{{user.username}}</h4> <span>{{user.element}}</span>
-                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                    <div id ="work"></div>
-                    <div class="d-flex flex-column"> <span class="pokemon">Top (howevermany) Pokemon here</span> <span class="number1">pictures</span> </div>
-                </div>
-                <div class="button mt-2 d-flex flex-row align-items-center">
-                  <button class="btn btn-sm btn-outline-info w-100" routerLink="message">Messages</button>
-                  <button class="btn btn-sm btn-info w-100 ml-2">Matches</button>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card p-3">
+            <div class="d-flex align-items-center">
+                <div class="image" id="yup" class="rounded" width="155"></div>
+                <div class="ml-3 w-100">
+                    <h1 style="color: red;" *ngIf="user.element == 'Fire'">{{user.element}}</h1>
+                    <h1 style="color: green;" *ngIf="user.element == 'Grass'">{{user.element}}</h1>
+                    <h1 style="color: blue;" *ngIf="user.element == 'Water'">{{user.element}}</h1>
+
+                    <h1 class="mb-0 mt-0">{{user.username}}</h1>
+                    <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                        <div id="work"></div>
+                        <div class="d-flex flex-column"> <span class="pokemon">Top (howevermany) Pokemon here</span>
+                            <span class="number1">pictures</span> </div>
+                    </div>
+                    <div class="button mt-2 d-flex flex-row align-items-center">
+                        <button class="btn btn-sm btn-outline-info w-100" routerLink="message">Messages</button>
+                        <button class="btn btn-sm btn-info w-100 ml-2">Matches</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
