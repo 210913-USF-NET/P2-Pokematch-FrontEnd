@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { pokemon } from '../../app/models/pokemon';
 import { user } from '../models/user';
-import { PokeApiService } from '../Service/poke-api.service';
+import { PokeApiService } from '../service/poke-api.service';
 import { AuthService } from '@auth0/auth0-angular';
 
 var pokelist: pokemon[] = [];
@@ -30,8 +30,8 @@ export class PokemonComponent implements OnInit {
     gender: '',
     interest: '',
     profilepic: '',
-    pokemons: '',
-    element: []
+    element: '',
+    pokemons: []
   };
 
   ngOnInit() {

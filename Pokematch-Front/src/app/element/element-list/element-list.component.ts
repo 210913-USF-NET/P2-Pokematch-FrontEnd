@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from '../../models/element';
-import { PokeApiService } from '../../Service/poke-api.service';
+import { PokeApiService } from 'src/app/service/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 
