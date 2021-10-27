@@ -19,8 +19,6 @@ export class MessageComponent implements OnInit {
 
   fromUser: string[] = [];
 
-  msgBody: message[] = [];
-
   user: user = {
     id: 0,
     username: '',
@@ -55,16 +53,15 @@ export class MessageComponent implements OnInit {
                 {
                   this.fromUser.push(this.user.matches[i].name);
                   this.user.matches[i] = match[i];
-                  this.msgBody.push(this.user.matches[i].messages);
                 }
               }
               console.log(match);
               console.log(user);
-              console.log(this.msgBody);
             })
           });
         }
       }
+
     })
   }
 

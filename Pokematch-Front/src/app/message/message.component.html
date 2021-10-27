@@ -19,10 +19,9 @@
     </div>
     <div class="col mt-1">
       <div class="card">
-        <div class="card-body" *ngFor="let msg of msgBody; let i = index;">
-          <div class="col text-left">
-            <p>{{msg[i+1].send}}</p>
-            <p>{{msg[i].send}}</p>
+        <div class="card-body" *ngFor="let match of user.matches">
+          <div class="col text-left" *ngFor="let msg of match.messages">
+            <p>{{msg.send}}</p>
           </div>
           <div class="col text-right">
             <p>yes</p>
