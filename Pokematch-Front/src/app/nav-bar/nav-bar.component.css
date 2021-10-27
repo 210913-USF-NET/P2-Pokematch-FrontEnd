@@ -22,7 +22,7 @@ nav {
         .dropdown {
             display: inline-block;
             position: relative;
-            overflow-y: visible;
+            
           
           }
           .dropdown-content {

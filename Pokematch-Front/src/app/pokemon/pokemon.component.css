@@ -9,6 +9,13 @@
     overflow: hidden;
 }
 
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .card {
     background-color: #fff;
     border: 0 solid #eee;
@@ -68,7 +75,7 @@
         }
         
         .btn btn-info btn-lg {
-            margin: 45px;
+            margin-bottom: 60px;
         }
     
     
