@@ -22,8 +22,9 @@ export class UserProfileComponent implements OnInit {
     gender: '',
     interest: '',
     profilepic: '',
-    pokemons: '',
-    element: []
+    element: '',
+
+    pokemons: []
   };
 
   ngOnInit(): void {

@@ -25,17 +25,15 @@ export class NavBarComponent implements OnInit {
       gender: '',
       interest: '',
       profilepic: '',
-      pokemons: '',
-      element: []
+      element: '',
+      pokemons: []
     };
   ngOnInit(): void {
 
   }
 
   login(): void {
-
     this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
-
   }
 
   logout(): void {

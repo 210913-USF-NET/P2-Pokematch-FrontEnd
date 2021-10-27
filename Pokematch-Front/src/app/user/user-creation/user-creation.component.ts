@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AsyncValidator, AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PokeApiService } from '../../service/poke-api.service';
-import { UserCreationService } from '../../service/user-creation.service';
+import { UserCreationService } from 'src/app/service/user-creation.service';
 import { of, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from '@auth0/auth0-angular';
 
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'user-creation',
@@ -21,7 +21,7 @@ export class UserCreationComponent implements OnInit {
 
   usernames = []
 
-  constructor(private router: Router, private currRoute: ActivatedRoute, private userService: UserCreationService, private pokeService: PokeApiService, private fb: FormBuilder) { }
+  constructor(private router: Router, private currRoute: ActivatedRoute, private auth:AuthService, private userService: UserCreationService, private pokeService: PokeApiService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.username = this.fb.control(
@@ -63,6 +63,15 @@ export class UserCreationComponent implements OnInit {
 
   onSubmit() {
     if (this.username.valid) {
+      this.userService.username = this.username.value
+
+      this.auth.user$.subscribe(profile => {
+        this.userService.email = profile.email
+      })
+
+      this.userService.gender = this.gender.value
+      this.userService.interest = this.interest.value
+
       this.router.navigate(['quiz'])
     }
   }

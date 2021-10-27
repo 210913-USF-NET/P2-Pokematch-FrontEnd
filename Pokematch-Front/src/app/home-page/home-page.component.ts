@@ -19,7 +19,4 @@ export class HomePageComponent implements OnInit {
   loginWithRedirect(): void {
     this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
-
-
-
 }

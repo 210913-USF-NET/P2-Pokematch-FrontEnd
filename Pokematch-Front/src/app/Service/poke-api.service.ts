@@ -30,9 +30,16 @@ export class PokeApiService {
     return this.http.get<[]>(this.userUrl).toPromise();
   }
 
+  addUser(user: user): Promise<user>
+  {
+    return this.http.post<user>(this.userUrl, user).toPromise();
+  }
+
   UpdateUser(user: user): Promise<user>
   {
     return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
   }
+
+
 }
 

@@ -30,8 +30,8 @@ export class PokemonComponent implements OnInit {
     gender: '',
     interest: '',
     profilepic: '',
-    pokemons: '',
-    element: []
+    element: '',
+    pokemons: []
   };
 
   ngOnInit() {
