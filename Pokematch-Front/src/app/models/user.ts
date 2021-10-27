@@ -1,13 +1,17 @@
 import {element} from './element';
+import {match} from './match';
 import { pokemon } from './pokemon';
 export interface user
 {
-    id: number;
+    id?: number;
     username: string;
     email: string;
     gender: string;
     interest:string;
     profilepic: string;
-    pokemons: pokemon[];
-    element: element[];
+    element: string;
+    elementId?: number;
+
+    matches?: match[];
+    pokemons?: pokemon[];
 }

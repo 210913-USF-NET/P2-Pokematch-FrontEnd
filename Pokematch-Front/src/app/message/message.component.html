@@ -1,1 +1,48 @@
-<p>message works!</p>
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;">
+      <a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-5 fw-semibold">Messages</span>
+      </a>
+<!--       <div class="list-group list-group-flush border-bottom scrollarea">
+        <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            This NEEDS to change to "fromUser array", but for now, it will display userList array
+            <strong class="mb-1">{{userlist[0].username}}</strong>
+          </div>
+          <div class="col-10 mb-1 small">Thanks me too</div>
+        </a>
+      </div> -->
+
+      <!-- This needs to be changed to the matchArray -->
+        <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let user of userlist; let i = index;">
+        <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">{{userlist[i].username}}</strong>
+          </div>
+          <div class="col-10 mb-1 small">Thanks me too</div>
+        </a>
+      </div>
+      <!-- ^^^This needs to be changed to the matchArray^^^ -->
+
+    </div>
+    <div class="col mt-1">
+      <div class="card">
+        <div class="card-body" id="msgBody">
+          <div class="col text-left">
+            <p>Hey there I really like your Pokemon</p>
+          </div>
+          <div class="col text-right">
+            <p>Thanks me too</p>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input id="sendMsg" type="text" class="form-control" placeholder="Send a message!" aria-label="Send a message!" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

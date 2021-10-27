@@ -9,33 +9,17 @@ import { AuthService } from '@auth0/auth0-angular';
   templateUrl: './element-list.component.html',
   styleUrls: ['./element-list.component.css']
 })
-export class ElementListComponent implements OnInit { 
+export class ElementListComponent implements OnInit {
   constructor(private currRoute: ActivatedRoute, private pokeService: PokeApiService, private auth: AuthService) {}
 
   elements: element[] = [];
   flag: boolean = false
 
   ngOnInit(): void {
-    this.pokeService.getElementList().then(result => 
+    this.pokeService.getElementList().then(result =>
       {
       this.elements = result;
       console.log(this.elements);
-    })
-
-    this.auth.user$.subscribe(profile => {
-      this.pokeService.getUserList().then(result => {
-        for (let i = 0; i < result.length; i++) {
-          if (result[i].email == profile.email) {
-            this.flag = true
-            console.log("hello")
-            this.auth.loginWithRedirect({ appState: { target: '/userprofile'} });
-          }
-        }
-
-        if (this.flag !== true) {
-          this.auth.loginWithRedirect({ appState: { target: '/user-creation'} });
-        }
-      })
     })
   }
 }

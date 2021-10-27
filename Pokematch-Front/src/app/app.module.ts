@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { UserListComponent } from './user/user-list/user-list.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { ElementListComponent } from './element/element-list/element-list.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
@@ -21,7 +20,6 @@ import { BufferComponent } from './buffer/buffer.component';
   declarations: [
     AppComponent,
     NavBarComponent,
-    UserListComponent,
     ElementListComponent,
     HomePageComponent,
     UserProfileComponent,

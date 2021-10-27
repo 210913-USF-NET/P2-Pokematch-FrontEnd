@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { element } from '../models/element';
 import { user } from '../models/user';
-import { User } from '@auth0/auth0-spa-js';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +9,17 @@ import { User } from '@auth0/auth0-spa-js';
 export class PokeApiService {
   rootUrl: string = 'https://pokematch.azurewebsites.net/api/element';
   userUrl: string = 'https://pokematch.azurewebsites.net/api/user';
-  
+
   globalid: number;
   /* Dependency injection. */
   constructor(private http: HttpClient) { }
- 
-  getElementList(): Promise<element[]> 
+
+  getElementList(): Promise<element[]>
   {
     return this.http.get<[]>(this.rootUrl).toPromise();
   }
 
-  getUserById(id: number): Promise<user> 
+  getUserById(id: number): Promise<user>
   {
     this.globalid = id;
     return this.http.get<user>(this.userUrl +'/'+id).toPromise();
@@ -31,9 +30,16 @@ export class PokeApiService {
     return this.http.get<[]>(this.userUrl).toPromise();
   }
 
+  addUser(user: user): Promise<user>
+  {
+    return this.http.post<user>(this.userUrl, user).toPromise();
+  }
+
   UpdateUser(user: user): Promise<user>
   {
     return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
   }
+
+
 }
 

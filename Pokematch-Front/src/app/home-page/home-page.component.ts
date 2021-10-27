@@ -11,15 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   constructor(private currRoute: ActivatedRoute, private pokeService: PokeApiService,  private router: Router, public auth: AuthService) { }
-  
+
   ngOnInit(): void {
-    
+
   }
 
   loginWithRedirect(): void {
     this.auth.loginWithRedirect({ screen_hint: 'signup' });
   }
-
-
-
 }
