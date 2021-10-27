@@ -143,11 +143,28 @@ export class PokemonComponent implements OnInit {
   }
 
   selectedSearchedPokemon() {
-    let i = pokelist.length;
+    let z = pokelist.length;
     if (profilepic[0] == null) {
-      alert("You have chosen " + pokenames[i-1] + " for your profile picture!");
-      profilepic.push(pokelist[i-1]);
-      document.getElementById('profilepic').innerHTML = '<img src="' + pokelist[i-1] + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.auth.user$.subscribe(
+          (profile) => (wtf = profile.email),
+        );
+      this.UserService.getUserList().then(result => {
+        this.userlist = result;
+        console.log(this.userlist);
+        for (let i = 0; i < this.userlist.length; i++) {
+          if (this.userlist[i].email == wtf) {
+            this.user.id = this.userlist[i].id;
+            this.UserService.getUserById(this.user.id).then(user => {
+              this.user = user;
+              this.user.profilepic = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
+              this.UserService.UpdateUser(user)
+            });
+          }
+        }
+      })
+      alert("You have chosen " + pokenames[z-1] + " for your profile picture!");
+      profilepic.push(pokelist[z-1]);
+      document.getElementById('profilepic').innerHTML = '<img src="' + pokelist[z-1] + ('" /><img src="') + 'width = "50"' + 'height="50"'
       document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
       return;
     }
@@ -157,8 +174,8 @@ export class PokemonComponent implements OnInit {
       console.log(profilepic);
       return;
     }
-    alert("You have selected " + pokenames[i-1])
-    favoritepokemon.push(pokenames[i-1]);
+    alert("You have selected " + pokenames[z-1])
+    favoritepokemon.push(pokenames[z-1]);
     return;
     // this.route.navigate(['/pokemonselection'])
   }
