@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AsyncValidator, AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { PokeApiService } from 'src/app/service/poke-api.service';
-import { UserCreationService } from 'src/app/service/user-creation.service';
+import { PokeApiService } from '../../Service/poke-api.service';
+import { UserCreationService } from '../../Service/user-creation.service';
 import { of, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
