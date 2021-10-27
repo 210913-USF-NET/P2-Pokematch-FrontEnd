@@ -6,3 +6,43 @@
 .form-radio > input {
     margin: .5rem;
 }
+
+.form-input {
+    text-align: center;
+}
+
+.form-input > select {
+    text-align: center;
+    width: 10rem;
+    height: 3rem;
+}
+
+#i-chose-you {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 70%;
+}
+
+#gender {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 90%;
+}
+
+#interest {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 90%;
+}
+
+.submit-button {
+    text-align: center;
+    font-size: 30px;
+    background-color: pink;
+}

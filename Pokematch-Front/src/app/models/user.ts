@@ -9,8 +9,9 @@ export interface user
     gender: string;
     interest:string;
     profilepic: string;
-    pokemons?: string;
-    matches?: match[];
     element: string;
     elementId?: number;
+
+    matches?: match[];
+    pokemons?: pokemon[];
 }

@@ -25,9 +25,10 @@ export class MessageComponent implements OnInit {
     gender: '',
     interest: '',
     profilepic: '',
-    pokemons: '',
     element: '',
-    matches: []
+    
+    matches: [],
+    pokemons: [],
   };
 
   ngOnInit(): void {
