@@ -47,4 +47,8 @@ export class QuizFormComponent implements OnInit {
     this.currQues = 0
     this.points = [0,0,0]
   }
+
+  result() {
+    console.log(this.currQues)
+  }
 }

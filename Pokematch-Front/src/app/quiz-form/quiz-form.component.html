@@ -17,8 +17,13 @@
 
                 <br>
 
-                <div *ngIf="currQues == quiz.length">
-                    <button type="submit">Take quiz again?</button>
+                <div class="btn-group">
+                    <div *ngIf="currQues == quiz.length">
+                        <button type="submit">Take quiz again?</button>
+                    </div>
+                    <div *ngIf="currQues == quiz.length">
+                        <button (click)="result()">Result</button>
+                    </div>
                 </div>
             </form>
         </div>

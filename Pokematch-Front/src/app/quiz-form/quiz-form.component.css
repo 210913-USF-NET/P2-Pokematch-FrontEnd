@@ -4,6 +4,10 @@
     width: 70rem;
 }
 
-button {
-    margin: 20rem auto;
+.btn-group button {
+    height: 5rem;
+    width: 20rem;
+    margin: 1rem;
+
+    display:inline-block;
 }
