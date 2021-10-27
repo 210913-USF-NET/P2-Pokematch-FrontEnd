@@ -1,4 +1,3 @@
-import {element} from './element';
 import {match} from './match';
 import { pokemon } from './pokemon';
 export interface user

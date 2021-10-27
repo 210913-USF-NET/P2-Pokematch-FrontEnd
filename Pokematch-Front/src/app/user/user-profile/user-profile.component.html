@@ -4,10 +4,18 @@
             <div class="d-flex align-items-center">
                 <div class="image" id="yup" class="rounded" width="155"></div>
                 <div class="ml-3 w-100">
-                    <h1 style="color: red;" *ngIf="user.element == 'Fire'">{{user.element}}</h1>
-                    <h1 style="color: green;" *ngIf="user.element == 'Grass'">{{user.element}}</h1>
-                    <h1 style="color: blue;" *ngIf="user.element == 'Water'">{{user.element}}</h1>
+                    <div class="fire" *ngIf="user.element == 'Fire'">
+                        <img src="https://www.clipartmax.com/png/full/83-830894_fire-type-pokemon-symbol-pokemon-fire-type-logo.png">
+                    </div>
+                    
+                    <div class="grass" *ngIf="user.element == 'Water'">
+                        <img src="https://www.clipartmax.com/png/full/322-3228843_pokemon-type-symbols-download-grass-type-pokemon-icon.png">
+                    </div> 
 
+                    <div class="water" *ngIf="user.element == 'Grass'">
+                        <img src="https://www.clipartmax.com/png/full/26-261578_pokemon-water-type-symbol.png">
+                    </div> 
+                    
                     <h1 class="mb-0 mt-0">{{user.username}}</h1>
                     <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
                         <div id="work"></div>
