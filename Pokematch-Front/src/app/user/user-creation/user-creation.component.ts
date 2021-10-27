@@ -57,7 +57,7 @@ export class UserCreationComponent implements OnInit {
     return (control: AbstractControl): Observable<ValidationErrors | null> =>
       this.userExists(control.value).pipe(
         map((response) => (response ? {
-           userExists: true, flag : true } : null))
+          userExists: true, flag : true } : null))
       )
   }
 

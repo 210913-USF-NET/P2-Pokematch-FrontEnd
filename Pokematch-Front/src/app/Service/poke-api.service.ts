@@ -9,17 +9,17 @@ import { user } from '../models/user';
 export class PokeApiService {
   rootUrl: string = 'https://pokematch.azurewebsites.net/api/element';
   userUrl: string = 'https://pokematch.azurewebsites.net/api/user';
-  
+
   globalid: number;
   /* Dependency injection. */
   constructor(private http: HttpClient) { }
- 
-  getElementList(): Promise<element[]> 
+
+  getElementList(): Promise<element[]>
   {
     return this.http.get<[]>(this.rootUrl).toPromise();
   }
 
-  getUserById(id: number): Promise<user> 
+  getUserById(id: number): Promise<user>
   {
     this.globalid = id;
     return this.http.get<user>(this.userUrl +'/'+id).toPromise();

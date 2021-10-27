@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { PokeApiService } from '../service/poke-api.service';
+import { user } from '../models/user';
+import { AuthService } from '@auth0/auth0-angular';
+var wtf: string;
 
 @Component({
   selector: 'app-message',
@@ -7,12 +12,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService) { }
+
+  userlist: user[] = [];
+
+  fromUser: string[] = [];
+
+  user: user = {
+    id: 0,
+    username: '',
+    email: '',
+    gender: '',
+    interest: '',
+    profilepic: '',
+    pokemons: '',
+    element: '',
+    matches: []
+  };
 
   ngOnInit(): void {
 
     // on initialize, grab the ids of the current logged in user and the match of theirs
     // then, display their messages if any
+    this.auth.user$.subscribe(
+      (profile) => (wtf = profile.email),
+    );
+    this.UserService.getUserList().then(result => {
+      this.userlist = result;
+      for (let i = 0; i < this.userlist.length; i++) {
+        if (this.userlist[i].email == wtf) {
+          this.user.id = this.userlist[i].id;
+          this.UserService.getUserById(this.user.id).then(user => {
+            this.user = user;
+            for (let i = 0; i < this.user.matches.length; i++) {
+              this.fromUser.push(this.user.matches[i].name);
+            }
+          });
+        }
+      }
+
+    })
   }
 
 }

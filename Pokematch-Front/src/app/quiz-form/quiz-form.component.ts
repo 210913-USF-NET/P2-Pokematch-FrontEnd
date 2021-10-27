@@ -27,9 +27,9 @@ export class QuizFormComponent implements OnInit {
     profilepic: '',
     element: '',
 
-    pokemons: []
+    pokemons: ''
   };
-  
+
   constructor(private router: Router, private quizService: QuizFormService, private userService:UserCreationService, private pokeService:PokeApiService) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class QuizFormComponent implements OnInit {
   {
     this.currQues++
 
-    if (type == 'Fire') 
+    if (type == 'Fire')
     {
       this.points[0] += point
     }
@@ -56,7 +56,7 @@ export class QuizFormComponent implements OnInit {
 
   onSubmit() {
     for (let i = 0; i < this.points.length; i++) {
-      for (let j = i + 1; j < this.points.length; j++) {  
+      for (let j = i + 1; j < this.points.length; j++) {
         if (this.points[i] < this.points[j]) {
           let tempNum = this.points[i]
           this.points[i] = this.points[j]
@@ -84,7 +84,7 @@ export class QuizFormComponent implements OnInit {
     this.user.email = this.userService.email
     this.user.gender = this.userService.gender
     this.user.interest = this.userService.interest
-    
+
     if (this.type == 'Fire') {
       this.user.elementId = 1
     }
