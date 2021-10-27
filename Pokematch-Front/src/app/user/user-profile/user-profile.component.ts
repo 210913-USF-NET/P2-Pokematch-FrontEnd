@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { PokeApiService } from 'src/app/service/poke-api.service';
+import { PokeApiService } from '../../Service/poke-api.service';
 import { user } from '../../models/user';
 import { AuthService } from '@auth0/auth0-angular';
 var wtf: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { PokeApiService } from '../service/poke-api.service';
+import { PokeApiService } from '../Service/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,9 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   constructor(private currRoute: ActivatedRoute, private pokeService: PokeApiService,  private router: Router, public auth: AuthService) { }
-  
+
   ngOnInit(): void {
-    
+
   }
 
   loginWithRedirect(): void {

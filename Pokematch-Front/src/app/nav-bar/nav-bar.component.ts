@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../models/user';
-import { PokeApiService } from '../service/poke-api.service';
+import { PokeApiService } from '../Service/poke-api.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
   profpic: string;
   constructor(public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document, private pokeService: PokeApiService, private UserService: PokeApiService) { }
-    
+
     userlist: user[] = [];
 
     user: user = {
@@ -29,12 +29,12 @@ export class NavBarComponent implements OnInit {
       element: []
     };
   ngOnInit(): void {
-          
+
   }
 
   login(): void {
 
-    this.auth.loginWithRedirect({ appState: { target: '/elements' } });
+    this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
 
   }
 
