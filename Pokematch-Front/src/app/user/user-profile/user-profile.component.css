@@ -2,7 +2,6 @@
     background-color: aqua;
 }
 
-
 .card {
     width: 400px;
     border: none;
@@ -22,4 +21,19 @@
 
 .number1 {
     font-weight: 500
+}
+
+.fire > img {
+    width: 20%;
+    height: auto;
+}
+
+.grass > img {
+    width: 20%;
+    height: auto;
+}
+
+.water > img {
+    width: 20%;
+    height: auto;
 }
