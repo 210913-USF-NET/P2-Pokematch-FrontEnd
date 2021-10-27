@@ -3,6 +3,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PokeApiService } from '../../service/poke-api.service';
 import { user } from '../../models/user';
 import { AuthService } from '@auth0/auth0-angular';
+import { pokemon } from 'src/app/models/pokemon';
+
 var wtf: string;
 @Component({
   selector: 'app-user-profile',
@@ -47,9 +49,11 @@ export class UserProfileComponent implements OnInit {
             else if (this.user.elementId == 3) {
               this.user.element = 'Water'
             }
-
             document.getElementById('profilepic').innerHTML = this.user.profilepic;
             document.getElementById('yup').innerHTML = this.user.profilepic;
+            document.getElementById('favorites').innerHTML = this.user.pokemons[14].imgUrl
+            console.log(user);
+            console.log(user.pokemons[13].imgUrl);
           });
         }
       }
