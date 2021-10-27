@@ -19,7 +19,9 @@
                 <br>
 
                 <div class="result" *ngIf="type != ''">
-                    <p>Type: <b>{{type}}</b></p>
+                    <div *ngIf="type == 'Fire'"><img src="https://www.clipartmax.com/png/full/83-830894_fire-type-pokemon-symbol-pokemon-fire-type-logo.png"></div>
+                    <div *ngIf="type == 'Grass'"><img src="https://www.clipartmax.com/png/full/322-3228843_pokemon-type-symbols-download-grass-type-pokemon-icon.png"></div>
+                    <div *ngIf="type == 'Water'"><img src="https://www.clipartmax.com/png/full/26-261578_pokemon-water-type-symbol.png"></div>
                     <div class="btn-group">
                         <button (click)="submitUser()">Submit</button>
                     </div>
@@ -27,8 +29,8 @@
 
                 <br>
 
-                <div class="btn-group">
-                    <div *ngIf="currQues == quiz.length">
+                <div class="btn-group" *ngIf="type == ''">
+                    <div *ngIf="currQues == quiz.length" >
                         <button (click)="restart()">Take quiz again?</button>
                     </div>
                     <div *ngIf="currQues == quiz.length">
