@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Matches</h1>
+    <br>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let match of user.matches">
+                <td>{{match.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
     interest: '',
     profilepic: '',
     element: '',
-    
+
     pokemons: []
   };
 
@@ -33,15 +33,24 @@ export class UserProfileComponent implements OnInit {
     );
     this.UserService.getUserList().then(result => {
       this.userlist = result;
-      console.log(this.userlist);
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].email == wtf) {
           this.user.id = this.userlist[i].id;
           this.UserService.getUserById(this.user.id).then(user => {
             this.user = user;
+
+            if (this.user.elementId == 1) {
+              this.user.element = 'Fire'
+            }
+            else if (this.user.elementId == 2) {
+              this.user.element = 'Grass'
+            }
+            else if (this.user.elementId == 3) {
+              this.user.element = 'Water'
+            }
+
             document.getElementById('profilepic').innerHTML = this.user.profilepic;
             document.getElementById('yup').innerHTML = this.user.profilepic;
-            console.log(user);
           });
         }
       }
