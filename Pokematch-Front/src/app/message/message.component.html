@@ -1,1 +1,31 @@
-<p>message works!</p>
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 380px;">
+      <a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-5 fw-semibold">Messages</span>
+      </a>
+      <div class="list-group list-group-flush border-bottom scrollarea">
+        <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">Username1</strong>
+          </div>
+          <div class="col-10 mb-1 small">Hey there, I really like your Pokemon</div>
+        </a>
+      </div>
+    </div>
+    <div class="col mt-1">
+      <div class="card">
+        <div class="card-body" id="msgBody">
+          <!--Here, we append the message to this div-->
+          <p>Username1: Hey there I really like your Pokemon</p>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input id="sendMsg" type="text" class="form-control" placeholder="Send a message!" aria-label="Send a message!" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
