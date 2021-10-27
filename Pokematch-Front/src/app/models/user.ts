@@ -6,6 +6,7 @@ export interface user
     email: string;
     gender: string;
     interest:string;
-
+    profilepic: string;
+    pokemons: string;
     element: element[];
 }
