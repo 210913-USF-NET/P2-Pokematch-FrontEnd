@@ -45,19 +45,14 @@ export class MessageComponent implements OnInit {
         if (this.userlist[i].email == wtf) {
           this.user.id = this.userlist[i].id;
           this.UserService.getUserById(this.user.id).then(user => {
-            this.UserService.getMatchList().then(match => {
               this.user = user;
-              this.user.matches = match;
               for (let i = 0; i < this.user.matches.length; i++) {
                 if (this.user.id == this.user.matches[i].userId)
                 {
                   this.fromUser.push(this.user.matches[i].name);
-                  this.user.matches[i] = match[i];
                 }
               }
-              console.log(match);
               console.log(user);
-            })
           });
         }
       }
