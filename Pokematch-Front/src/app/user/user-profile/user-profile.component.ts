@@ -21,6 +21,8 @@ export class UserProfileComponent implements OnInit {
     email: '',
     gender: '',
     interest: '',
+    profilepic: '',
+    pokemons: '',
     element: []
   };
 
@@ -36,6 +38,8 @@ export class UserProfileComponent implements OnInit {
           this.user.id = this.userlist[i].id;
           this.UserService.getUserById(this.user.id).then(user => {
             this.user = user;
+            document.getElementById('profilepic').innerHTML = this.user.profilepic;
+            document.getElementById('yup').innerHTML = this.user.profilepic;
             console.log(user);
           });
         }
@@ -43,21 +47,3 @@ export class UserProfileComponent implements OnInit {
     })
   };
 }
-// @Component({
-//   selector: 'element-list',
-//   templateUrl: './element-list.component.html',
-//   styleUrls: ['./element-list.component.css']
-// })
-// export class ElementListComponent implements OnInit {
-
-//   constructor(private currRoute: ActivatedRoute, private PokeService: PokeApiService) {}
-
-//   elements: element[] = [];
-
-//   ngOnInit(): void {
-//     this.PokeService.getElementList().then(result => {
-//       this.elements = result;
-//     })
-//   }
-
-// }

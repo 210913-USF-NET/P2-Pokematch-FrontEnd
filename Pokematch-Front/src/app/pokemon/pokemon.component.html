@@ -140,3 +140,10 @@
         text-align: center;
       }
     </style>
+
+<form>
+<input type="text" id="username" name="username" [(ngModel)]="yolo">
+<button type="button" (click)="SearchPokemon(yolo)">Search Pokemon</button>
+  <button id="result1" (click)="selectedSearchedPokemon()"
+  class="btn btn-light"></button>
+</form>

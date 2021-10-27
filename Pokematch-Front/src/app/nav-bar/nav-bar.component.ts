@@ -1,7 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { user } from '../models/user';
 import { PokeApiService } from '../service/poke-api.service';
+
 
 @Component({
   selector: 'nav-bar',
@@ -10,12 +12,24 @@ import { PokeApiService } from '../service/poke-api.service';
 })
 export class NavBarComponent implements OnInit {
 
-
+  profpic: string;
   constructor(public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document, private pokeService: PokeApiService) { }
+    @Inject(DOCUMENT) private doc: Document, private pokeService: PokeApiService, private UserService: PokeApiService) { }
+    
+    userlist: user[] = [];
 
+    user: user = {
+      id: 0,
+      username: '',
+      email: '',
+      gender: '',
+      interest: '',
+      profilepic: '',
+      pokemons: '',
+      element: []
+    };
   ngOnInit(): void {
-
+          
   }
 
   login(): void {
