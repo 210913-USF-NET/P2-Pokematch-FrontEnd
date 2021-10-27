@@ -1,6 +1,27 @@
-<p style="text-align: center;" id="directions">
+<p class="directions">
   Welcome, please select a pokemon for your profile picture!
 </p>
+
+
+
+
+<div class="search__container">
+    <p class="search__title">
+        Search for specific Pokemon with the search bar below
+    </p>
+    <input type="text" id="username" name="username" [(ngModel)]="yolo" class="search__input" type="text" placeholder="Search Pokemon Name">
+    
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xl-5">
+    <button  type="button" class="btn btn-info btn-lg" (click)="SearchPokemon(yolo)">Submit</button>
+    </div>
+    </div>
+    </div>
+    
+    <button id="result1" (click)="selectedSearchedPokemon()" class="btn btn-light"></button>
+    
+
 
 <div class="input">
   {{getPokemonList()}}
@@ -141,9 +162,3 @@
       }
     </style>
 
-<form>
-<input type="text" id="username" name="username" [(ngModel)]="yolo">
-<button type="button" (click)="SearchPokemon(yolo)">Search Pokemon</button>
-  <button id="result1" (click)="selectedSearchedPokemon()"
-  class="btn btn-light"></button>
-</form>

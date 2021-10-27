@@ -1,3 +1,4 @@
+<body>
 <nav class="navbar navbar-expand-lg" style="background-color: #FF9FB2;">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink=""><img src="assets/img/pokematch.png" height="45"></a>
@@ -12,7 +13,7 @@
                 </li>
             </ul>
             <div class="dropdown" style="float: right;" *ngIf="(auth.isAuthenticated$ | async) === true">
-                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" alt="Avatar" class="avatar"></button>
+                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" class="rounded-circle" style="width: 70px;"></button>
                 <div class="dropdown-content">
                     <div>
                         <button type="button" class="btn btn-light" routerLink="userprofile">Profile</button>
@@ -22,9 +23,11 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         <div *ngIf="(auth.isAuthenticated$ | async) === false">
             <button type="button" class="btn btn-light" (click)="login()">Login</button>
         </div>
     </div>
 </nav>
+</body>
