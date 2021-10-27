@@ -13,6 +13,7 @@ export class QuizFormComponent implements OnInit {
 
   types = ['fire', 'water', 'grass']
   points = [0,0,0]
+  type: string = ''
 
   answerSelected:boolean = false
   currQues = 0;
@@ -50,5 +51,6 @@ export class QuizFormComponent implements OnInit {
 
   result() {
     console.log(this.currQues)
+    
   }
 }

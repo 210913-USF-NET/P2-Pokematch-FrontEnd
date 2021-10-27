@@ -18,6 +18,7 @@
                 <br>
 
                 <div class="btn-group">
+                    <div *ngIf="type != ''">hello</div>
                     <div *ngIf="currQues == quiz.length">
                         <button type="submit">Take quiz again?</button>
                     </div>
