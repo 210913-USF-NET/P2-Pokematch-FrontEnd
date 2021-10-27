@@ -7,7 +7,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <button class="btn btn-danger" (click)="loginWithRedirect()">
+            <button class="btn btn-danger" (click)="login()">
                 Force Login
             </button>
                 <li class="nav-item">
@@ -27,10 +27,10 @@
                 </li>
             </ul>
             <div class="dropdown" style="float: right;" *ngIf="(auth.isAuthenticated$ | async) === true">
-                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" class= "rounded" width="70" height="70"></button>
+                <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" alt="Avatar" class="avatar"></button>
                 <div class="dropdown-content">
                     <div>
-                        <button type="button" class="btn btn-light" routerLink="userprofile">user</button>
+                        <button type="button" class="btn btn-light" routerLink="userprofile">Profile</button>
                     </div>
                     <div *ngIf="(auth.isAuthenticated$ | async) === true">
                         <button type="button" class="btn btn-light" (click)="logout()" >Logout</button>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div *ngIf="(auth.isAuthenticated$ | async) === false">
-            <button type="button" class="btn btn-light" (click)="loginWithRedirect()">Login</button>
+            <button type="button" class="btn btn-light" (click)="login()">Login</button>
         </div>
     </div>
 </nav>

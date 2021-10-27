@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import {user} from '../models/user';
 import { PokeApiService } from '../service/poke-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,14 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private userService: PokeApiService,  private router: Router, public auth: AuthService) { }
+  constructor(private currRoute: ActivatedRoute, private pokeService: PokeApiService,  private router: Router, public auth: AuthService) { }
   
   ngOnInit(): void {
-    this.auth.user$.subscribe(
-      (profile) => (console.log(profile),
-      console.log(profile.email))
-    )
-    ;
+    
   }
 
   loginWithRedirect(): void {

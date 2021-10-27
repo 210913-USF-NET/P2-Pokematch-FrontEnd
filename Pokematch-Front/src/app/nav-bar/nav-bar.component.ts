@@ -1,26 +1,44 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { User } from '@auth0/auth0-spa-js';
+import { user } from '../models/user';
+import { PokeApiService } from '../service/poke-api.service';
+
 
 @Component({
-selector: 'nav-bar',
-templateUrl: './nav-bar.component.html',
-styleUrls: ['./nav-bar.component.css']
+  selector: 'nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
 
-constructor(public auth: AuthService,
-  @Inject(DOCUMENT) private doc: Document) { }
+  profpic: string;
+  constructor(public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document, private pokeService: PokeApiService, private UserService: PokeApiService) { }
+    
+    userlist: user[] = [];
 
-ngOnInit(): void {
-}
-  loginWithRedirect(): void {
-    this.auth.loginWithRedirect();
+    user: user = {
+      id: 0,
+      username: '',
+      email: '',
+      gender: '',
+      interest: '',
+      profilepic: '',
+      pokemons: '',
+      element: []
+    };
+  ngOnInit(): void {
+          
+  }
+
+  login(): void {
+
+    this.auth.loginWithRedirect({ appState: { target: '/elements' } });
+
   }
 
   logout(): void {
     this.auth.logout({ returnTo: this.doc.location.origin });
   }
-
 }

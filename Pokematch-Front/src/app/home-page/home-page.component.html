@@ -1,14 +1,37 @@
 <body>
-<div class="card-body text-center row" >
-      <div>
-        <img src="assets/img/pokematch.png" height ="100">
-        <br>
-      <div class="ml-1">
+  <div class="svg-container">
+  
+    <!-- I crated SVG with: https://codepen.io/anthonydugois/pen/mewdyZ -->
+    <svg viewbox="0 0 800 400" class="svg">
+      
+    </svg>
+  </div>
+
+  <header>
+    <h1><img src="assets/img/pokematch.png" height ="100"></h1>
+    <h3>Are you single? MewTwo!</h3>
+    
+  </header>
+
+
+
+  <main>
+    <p>fdsjkddfs</p>
+    <div class="ml-1">
         <button class="btn btn-success" (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$ | async) === false">
           Register Now
         </button>
       </div>
-      </div>
-    </div>
-    <div class="bg-img"></div>
-  </body>
+  </main>
+
+
+
+
+
+
+  <footer>
+    <p>Team Pokemon</p>
+    <small>P2 Project, Revature</small>
+  </footer>
+  
+</body>
