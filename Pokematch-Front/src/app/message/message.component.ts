@@ -55,14 +55,22 @@ export class MessageComponent implements OnInit {
               }
               this.selectedUser = this.fromUser[0];
               console.log(this.selectedUser);
+
+
               console.log(user);
+              console.log(user.matches);
           });
         }
       }
     })
   }
 
-  /*postMsg(): void{
+  postMsg(): void{
 
-  }*/
+  }
+
+  selectUser(userName): void {
+    this.selectedUser = userName;
+    // run logic where it will replace matches.message with the selected user name
+  }
 }
