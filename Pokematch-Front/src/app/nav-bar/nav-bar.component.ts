@@ -25,7 +25,7 @@ export class NavBarComponent implements OnInit {
       gender: '',
       interest: '',
       profilepic: '',
-      pokemons: '',
+      pokemons: [],
       element: []
     };
   ngOnInit(): void {

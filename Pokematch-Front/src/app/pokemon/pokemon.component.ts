@@ -30,7 +30,7 @@ export class PokemonComponent implements OnInit {
     gender: '',
     interest: '',
     profilepic: '',
-    pokemons: '',
+    pokemons: [],
     element: []
   };
 
@@ -169,13 +169,30 @@ export class PokemonComponent implements OnInit {
       return;
     }
     if (favoritepokemon[2] != null) {
+      this.auth.user$.subscribe(
+        (profile) => (wtf = profile.email),
+      );
+    this.UserService.getUserList().then(result => {
+      this.userlist = result;
+      console.log(this.userlist);
+      for (let i = 0; i < this.userlist.length; i++) {
+        if (this.userlist[i].email == wtf) {
+          this.user.id = this.userlist[i].id;
+          this.UserService.getUserById(this.user.id).then(user => {
+            this.user = user;
+            this.user.pokemons = favoritepokemon
+            this.UserService.UpdateUser(user)
+          });
+        }
+      }
+    })
       alert("You may only select 3 favorite pokemon");
       console.log(favoritepokemon);
       console.log(profilepic);
       return;
     }
+  favoritepokemon.push(pokenames[z-1]);
     alert("You have selected " + pokenames[z-1])
-    favoritepokemon.push(pokenames[z-1]);
     return;
     // this.route.navigate(['/pokemonselection'])
   }

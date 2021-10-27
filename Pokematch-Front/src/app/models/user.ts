@@ -1,4 +1,5 @@
 import {element} from './element';
+import { pokemon } from './pokemon';
 export interface user
 {
     id: number;
@@ -7,6 +8,6 @@ export interface user
     gender: string;
     interest:string;
     profilepic: string;
-    pokemons: string;
+    pokemons: pokemon[];
     element: element[];
 }
