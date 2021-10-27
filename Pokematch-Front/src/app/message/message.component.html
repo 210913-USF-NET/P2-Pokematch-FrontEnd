@@ -17,7 +17,11 @@
       <!-- ^^^This needs to be changed to the matchArray^^^ -->
 
     </div>
+
     <div class="col mt-1">
+      <div>
+        <h3>{{selectedUser}}</h3>
+      </div>
       <div class="card">
         <div class="card-body" *ngFor="let match of user.matches">
           <div class="col text-left" *ngFor="let msg of match.messages">

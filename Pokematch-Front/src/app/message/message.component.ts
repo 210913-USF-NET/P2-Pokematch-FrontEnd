@@ -19,6 +19,8 @@ export class MessageComponent implements OnInit {
 
   fromUser: string[] = [];
 
+  selectedUser: string;
+
   user: user = {
     id: 0,
     username: '',
@@ -33,9 +35,6 @@ export class MessageComponent implements OnInit {
   };
 
   ngOnInit(): void {
-
-    // on initialize, grab the ids of the current logged in user and the match of theirs
-    // then, display their messages if any
     this.auth.user$.subscribe(
       (profile) => (wtf = profile.email),
     );
@@ -47,17 +46,23 @@ export class MessageComponent implements OnInit {
           this.UserService.getUserById(this.user.id).then(user => {
               this.user = user;
               for (let i = 0; i < this.user.matches.length; i++) {
+                // if user2 matches this.user.matches
+                // then push the user name matches into fromUser
                 if (this.user.id == this.user.matches[i].userId)
-                {
+                { //instead of this ^^^^
                   this.fromUser.push(this.user.matches[i].name);
                 }
               }
+              this.selectedUser = this.fromUser[0];
+              console.log(this.selectedUser);
               console.log(user);
           });
         }
       }
-
     })
   }
 
+  /*postMsg(): void{
+
+  }*/
 }
