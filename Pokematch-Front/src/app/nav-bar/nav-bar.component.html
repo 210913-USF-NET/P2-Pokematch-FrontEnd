@@ -11,6 +11,9 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="pokemon">Pokemon</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="match">Match</a>
+                </li>
             </ul>
             <div class="dropdown" style="float: right;" *ngIf="(auth.isAuthenticated$ | async) === true">
                 <button id ="profilepic"><img src="https://villagesonmacarthur.com/wp-content/uploads/2020/12/Blank-Avatar.png" class="rounded-circle" style="width: 70px;"></button>
