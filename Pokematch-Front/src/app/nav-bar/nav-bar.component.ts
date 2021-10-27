@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../models/user';
-import { PokeApiService } from '../Service/poke-api.service';
+import { PokeApiService } from '../service/poke-api.service';
 
 
 @Component({

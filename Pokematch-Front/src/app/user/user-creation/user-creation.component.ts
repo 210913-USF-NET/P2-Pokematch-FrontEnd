@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AsyncValidator, AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { PokeApiService } from '../../Service/poke-api.service';
-import { UserCreationService } from '../../Service/user-creation.service';
+import { PokeApiService } from '../../service/poke-api.service';
+import { UserCreationService } from '../../service/user-creation.service';
 import { of, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -57,7 +57,7 @@ export class UserCreationComponent implements OnInit {
     return (control: AbstractControl): Observable<ValidationErrors | null> =>
       this.userExists(control.value).pipe(
         map((response) => (response ? {
-           userExists: true, flag : true } : null))
+          userExists: true, flag : true } : null))
       )
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { PokeApiService } from '../Service/poke-api.service';
+import { PokeApiService } from '../service/poke-api.service';
 
 @Component({
   selector: 'app-buffer',
