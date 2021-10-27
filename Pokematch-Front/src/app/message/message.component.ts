@@ -25,7 +25,7 @@ export class MessageComponent implements OnInit {
     gender: '',
     interest: '',
     profilepic: '',
-    pokemons: '',
+    pokemons: [],
     element: '',
     matches: []
   };
