@@ -21,21 +21,5 @@ export class ElementListComponent implements OnInit {
       this.elements = result;
       console.log(this.elements);
     })
-
-    this.auth.user$.subscribe(profile => {
-      this.pokeService.getUserList().then(result => {
-        for (let i = 0; i < result.length; i++) {
-          if (result[i].email == profile.email) {
-            this.flag = true
-            console.log("hello")
-            this.auth.loginWithRedirect({ appState: { target: '/userprofile'} });
-          }
-        }
-
-        if (this.flag !== true) {
-          this.auth.loginWithRedirect({ appState: { target: '/user-creation'} });
-        }
-      })
-    })
   }
 }

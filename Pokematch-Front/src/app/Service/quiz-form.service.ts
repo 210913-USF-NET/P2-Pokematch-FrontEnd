@@ -29,9 +29,18 @@ export class QuizFormService {
       question: 'What is your favorite movie genre?',
       answer: 
       [
-        { option: 'Cheesecake', type: 'fire', point: 2 },
-        { option: 'Brownie', type: 'grass', point: 2 },
-        { option: 'Ice cream', type: 'water', point: 2 }
+        { option: 'Thriller', type: 'fire', point: 1 },
+        { option: 'Fantasy', type: 'grass', point: 1 },
+        { option: 'Romance', type: 'water', point: 1 }
+      ]
+    },
+    {
+      question: 'What is your best quality?',
+      answer: 
+      [
+        { option: 'Passionate', type: 'fire', point: 2 },
+        { option: 'Honest', type: 'grass', point: 2 },
+        { option: 'Humble', type: 'water', point: 2 }
       ]
     }
   ]

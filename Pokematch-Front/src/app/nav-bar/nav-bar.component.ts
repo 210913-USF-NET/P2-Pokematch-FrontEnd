@@ -19,9 +19,8 @@ export class NavBarComponent implements OnInit {
   }
 
   login(): void {
-
-    this.auth.loginWithRedirect({ appState: { target: '/elements' } });
-
+    this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
+    
   }
 
   logout(): void {

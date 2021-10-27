@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dictionary } from '../data structure/dictionary';
+import { Router } from '@angular/router';
 import { quiz } from '../models/quiz';
 import { QuizFormService } from '../service/quiz-form.service';
 
@@ -9,17 +9,15 @@ import { QuizFormService } from '../service/quiz-form.service';
   styleUrls: ['./quiz-form.component.css']
 })
 export class QuizFormComponent implements OnInit {
-  
-  dict = new Dictionary()
   quiz: quiz[] = []
 
-  type = ['fire', 'water', 'grass']
-  point = []
+  types = ['fire', 'water', 'grass']
+  points = [0,0,0]
 
-
+  answerSelected:boolean = false
   currQues = 0;
 
-  constructor(private quizService: QuizFormService) { }
+  constructor(private router: Router, private quizService: QuizFormService) { }
 
   ngOnInit(): void {
     this.quiz = this.quizService.getQuiz();
@@ -27,27 +25,26 @@ export class QuizFormComponent implements OnInit {
 
   onAnswer(type: string, point: number)
   {
-    if (type === 'fire') 
-    {
-      point[0]++
-      
-      console.log(point[0]);
+    this.currQues++
 
-      this.currQues++;
+    if (type == 'fire') 
+    {
+      this.points[0] += point
     }
     else if (type == 'water') 
     {
-      point[1]++
-      console.log(point[1]);
-
-      this.currQues++;
+      this.points[1] += point
     }
     else if (type == 'grass') 
     {
-      point[2]++
-      console.log(point[2]);
-
-      this.currQues++;
+      this.points[2] += point
     }
+
+    this.answerSelected = false
+  }
+
+  onSubmit() {
+    this.currQues = 0
+    this.points = [0,0,0]
   }
 }
