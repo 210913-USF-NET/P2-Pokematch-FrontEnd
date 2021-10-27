@@ -10,6 +10,10 @@ import { match } from '../models/match';
   styleUrls: ['./match.component.css']
 })
 export class MatchComponent implements OnInit {
+  imgUrl:string
+
+  users:user[] = []
+
   user: user = {
     id: 0,
     username: '',
@@ -34,14 +38,12 @@ export class MatchComponent implements OnInit {
             this.pokeService.getUserById(user.id).then(e => {
               this.user = e
 
-              console.log(this.user)
+              console.log(this.user.matches[0].imgUrl)
+              document.getElementById('profileImg').innerHTML = this.user.matches[0].imgUrl + "{{match.name}}";
             })
           }
         });
       })
-
-      
     })
   }
-
 }
