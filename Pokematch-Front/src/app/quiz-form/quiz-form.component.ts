@@ -27,7 +27,7 @@ export class QuizFormComponent implements OnInit {
     profilepic: '',
     element: '',
 
-    pokemons: ''
+    pokemons: []
   };
 
   constructor(private router: Router, private quizService: QuizFormService, private userService:UserCreationService, private pokeService:PokeApiService) { }

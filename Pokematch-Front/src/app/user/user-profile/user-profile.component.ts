@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
     interest: '',
     profilepic: '',
     element: '',
-
+    
     pokemons: []
   };
 
