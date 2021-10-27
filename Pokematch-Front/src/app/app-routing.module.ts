@@ -55,7 +55,7 @@ const routes: Routes = [
 
   /* ----- Message ----- */
   {
-    path: 'message',
+    path: 'userprofile/message',
     component: MessageComponent
   }
 ];

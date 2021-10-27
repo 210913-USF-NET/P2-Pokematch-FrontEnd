@@ -4,20 +4,37 @@
       <a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         <span class="fs-5 fw-semibold">Messages</span>
       </a>
-      <div class="list-group list-group-flush border-bottom scrollarea">
+<!--       <div class="list-group list-group-flush border-bottom scrollarea">
         <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
           <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">Username1</strong>
+            This NEEDS to change to "fromUser array", but for now, it will display userList array
+            <strong class="mb-1">{{userlist[0].username}}</strong>
           </div>
-          <div class="col-10 mb-1 small">Hey there, I really like your Pokemon</div>
+          <div class="col-10 mb-1 small">Thanks me too</div>
+        </a>
+      </div> -->
+
+      <!-- This needs to be changed to the matchArray -->
+        <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let user of userlist; let i = index;">
+        <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">{{userlist[i].username}}</strong>
+          </div>
+          <div class="col-10 mb-1 small">Thanks me too</div>
         </a>
       </div>
+      <!-- ^^^This needs to be changed to the matchArray^^^ -->
+
     </div>
     <div class="col mt-1">
       <div class="card">
         <div class="card-body" id="msgBody">
-          <!--Here, we append the message to this div-->
-          <p>Username: Hey there I really like your Pokemon</p>
+          <div class="col text-left">
+            <p>Hey there I really like your Pokemon</p>
+          </div>
+          <div class="col text-right">
+            <p>Thanks me too</p>
+          </div>
         </div>
       </div>
       <div class="input-group mb-3">

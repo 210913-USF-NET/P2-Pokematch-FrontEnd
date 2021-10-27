@@ -1,4 +1,5 @@
 import {element} from './element';
+import {match} from './match';
 export interface user
 {
     id: number;
@@ -9,4 +10,5 @@ export interface user
     profilepic: string;
     pokemons: string;
     element: element[];
+    matches?: match[];
 }
