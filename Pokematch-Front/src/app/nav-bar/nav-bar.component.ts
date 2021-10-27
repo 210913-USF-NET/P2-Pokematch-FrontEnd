@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit {
   profpic: string;
   constructor(public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document, private pokeService: PokeApiService, private UserService: PokeApiService) { }
-    
+
     userlist: user[] = [];
 
     user: user = {
@@ -25,16 +25,15 @@ export class NavBarComponent implements OnInit {
       gender: '',
       interest: '',
       profilepic: '',
-      pokemons: '',
-      element: []
+      element: '',
+      pokemons: []
     };
   ngOnInit(): void {
-          
+
   }
 
   login(): void {
     this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
-    
   }
 
   logout(): void {

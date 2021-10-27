@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { element } from '../models/element';
 import { user } from '../models/user';
-import { User } from '@auth0/auth0-spa-js';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +30,16 @@ export class PokeApiService {
     return this.http.get<[]>(this.userUrl).toPromise();
   }
 
+  addUser(user: user): Promise<user>
+  {
+    return this.http.post<user>(this.userUrl, user).toPromise();
+  }
+
   UpdateUser(user: user): Promise<user>
   {
     return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
   }
+
+
 }
 

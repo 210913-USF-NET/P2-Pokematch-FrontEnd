@@ -10,6 +10,7 @@
                             <li class="list-group-item">
                                 <input type="radio" name="options" (change)="onAnswer(quiz.type, quiz.point)">
                                 {{quiz.option}}
+                                <br>
                             </li>
                         </label>
                     </ul>
@@ -17,13 +18,21 @@
 
                 <br>
 
+                <div class="result" *ngIf="type != ''">
+                    <p>Type: <b>{{type}}</b></p>
+                    <div class="btn-group">
+                        <button (click)="submitUser()">Submit</button>
+                    </div>
+                </div>
+
+                <br>
+
                 <div class="btn-group">
-                    <div *ngIf="type != ''">hello</div>
                     <div *ngIf="currQues == quiz.length">
-                        <button type="submit">Take quiz again?</button>
+                        <button (click)="restart()">Take quiz again?</button>
                     </div>
                     <div *ngIf="currQues == quiz.length">
-                        <button (click)="result()">Result</button>
+                        <button type="submit">Result</button>
                     </div>
                 </div>
             </form>

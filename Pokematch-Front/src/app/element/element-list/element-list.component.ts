@@ -9,14 +9,14 @@ import { AuthService } from '@auth0/auth0-angular';
   templateUrl: './element-list.component.html',
   styleUrls: ['./element-list.component.css']
 })
-export class ElementListComponent implements OnInit { 
+export class ElementListComponent implements OnInit {
   constructor(private currRoute: ActivatedRoute, private pokeService: PokeApiService, private auth: AuthService) {}
 
   elements: element[] = [];
   flag: boolean = false
 
   ngOnInit(): void {
-    this.pokeService.getElementList().then(result => 
+    this.pokeService.getElementList().then(result =>
       {
       this.elements = result;
       console.log(this.elements);
