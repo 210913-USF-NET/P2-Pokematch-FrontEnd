@@ -180,10 +180,10 @@ export class PokemonComponent implements OnInit {
             this.user = user;
             this.pokeService.deletePokemon(this.user.pokemons[this.userService.pokemonfavoritechange].id);
             this.charizard.UserId = this.user.id;
-            this.charizard.Name = pokenames[net - 1];
+            this.charizard.name = pokenames[net - 1];
             this.charizard.imgUrl = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
             this.pokeService.addPokemon(this.charizard)
-            alert("You have selected " + pokenames[net - 1] + "as your new favorite")
+            alert("You have selected " + pokenames[net - 1] + " as your new favorite")
             favoritepokemon.push(pokelist[net - 1]);
             this.router.navigate(['userprofile']);
           });
@@ -248,6 +248,8 @@ export class PokemonComponent implements OnInit {
       document.getElementById('profilepic').innerHTML = '<img src="' + pokelist[z-1] + ('" /><img src="') + 'width = "50"' + 'height="50"'
       return;
     }
+    if(this.userService.pokemonfavoritechange == null)
+    {
     this.auth.user$.subscribe(
       (profile) => (bao = profile.email),
     );
@@ -271,11 +273,38 @@ export class PokemonComponent implements OnInit {
             }
             else{
             alert("You may only select 3 favorite pokemon");
-            this.router.navigate(['userprofile']);
             }
           });
         }
       }
     })
+  }
+  if (this.userService.pokemonfavoritechange != null)
+  {
+    this.auth.user$.subscribe(
+      (profile) => (bao = profile.email),
+    );
+    this.pokeService.getUserList().then(result => {
+      this.userlist = result;
+      console.log(this.userlist);
+      for (let i = 0; i < this.userlist.length; i++) {
+        if (this.userlist[i].email == bao) {
+          this.user.id = this.userlist[i].id;
+          this.pokeService.getUserById(this.user.id).then(user => {
+            this.user = user;
+            this.pokeService.deletePokemon(this.user.pokemons[this.userService.pokemonfavoritechange].id);
+            this.charizard.UserId = this.user.id;
+            this.charizard.name = pokenames[z - 1];
+            this.charizard.imgUrl = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
+            this.pokeService.addPokemon(this.charizard)
+            alert("You have selected " + pokenames[z - 1] + " as your new favorite")
+            favoritepokemon.push(pokelist[z - 1]);
+            this.router.navigate(['userprofile']);
+          });
+        }
+      }
+    })
+  }
+    // this.route.navigate(['/pokemonselection'])
   }
 }
