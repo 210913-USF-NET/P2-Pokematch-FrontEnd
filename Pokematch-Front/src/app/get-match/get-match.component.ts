@@ -108,7 +108,7 @@ export class GetMatchComponent implements OnInit {
     Match(matchUser: user) {
       console.log(matchUser);
       let match: match = {
-        name: aUser.username,
+        name: matchUser.username,
         userId: aUser.id, 
         userId2: matchUser.id, 
         messages: []
@@ -116,7 +116,7 @@ export class GetMatchComponent implements OnInit {
       this.pokeService.AddMatch(match);
       console.log(match)
 
-      this.router.navigate(['get-match'])
+      this.router.navigate(['match'])
     }
 
 
