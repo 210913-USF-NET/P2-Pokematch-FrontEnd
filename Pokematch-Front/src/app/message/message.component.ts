@@ -6,6 +6,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { message } from '../models/message';
 import { match } from '../models/match';
 var globalEmail: string;
+var displayName: string;
 
 
 
@@ -26,11 +27,11 @@ export class MessageComponent implements OnInit {
 
   selectedUser: string;
   selectedUserId: number;
-  selectedUserBody: message[];
+  selectedUserBody: message[] = [];
 
   myUser: string;
   myUserId: number;
-  myUserBody: message[];
+  myUserBody: message[] = [];
 
   matchList: match[];
 
@@ -93,6 +94,13 @@ export class MessageComponent implements OnInit {
                   if (isMatched && this.user.id == this.user.matches[i].userId)
                   {
                     this.fromUser.push(this.user.matches[i].name);
+                    /*if (this.user.matches[i].messages.length >= 1)
+                    {
+                      for (let j = 0; j < this.user.matches[i].messages.length; j++)
+                      {
+                        this.myUserBody.push(this.user.matches[i].messages[j])
+                      }
+                    }*/
                   }
                 })
               }
@@ -112,7 +120,6 @@ export class MessageComponent implements OnInit {
 
     if(chosenUser != undefined)
     {
-      console.log(this.myUser);
       let string = (<HTMLInputElement>document.querySelector("#sendMsg")).value;
       if (string.trim() != "")
       {
@@ -130,9 +137,8 @@ export class MessageComponent implements OnInit {
               this.message.toUser = this.selectedUser;
               this.message.fromUser = this.myUser;
               this.message.send = string;
-              console.log(this.message);
-              //this is not ready yet! remove after confirming ^^^^^
-              //this.UserService.postMessage(this.message)
+              this.UserService.postMessage(this.message);
+              this.myUserBody.push(this.message);
 
             }
 
@@ -141,29 +147,86 @@ export class MessageComponent implements OnInit {
         })
       }
     }
-    this.pingUser();
+    (<HTMLInputElement>document.querySelector("#sendMsg")).value = "";
   }
 
   selectUser(userName): void {
     (<HTMLInputElement>document.querySelector("#sendMsg")).value = "";
-    this.selectedUser = userName;
-    this.UserService.getUserList().then(result => {
-      this.userlist = result;
-      for (let i = 0; i < this.userlist.length; i++)
-      {
-        if (this.userlist[i].username == userName)
+    if (displayName != userName)
+    {
+      this.selectedUserBody.length = 0;
+      this.myUserBody.length = 0;
+      this.selectedUser = userName;
+      displayName = userName;
+      this.UserService.getUserList().then(result => {
+        this.userlist = result;
+        for (let i = 0; i < this.userlist.length; i++)
         {
-          this.UserService.getUserById(this.userlist[i].id).then(userSecond => {
-            this.user2 = userSecond;
-            this.selectedUserId = userSecond.id;
-            console.log(userSecond);
-          })
+          if (this.userlist[i].username == userName)
+          {
+            this.UserService.getUserById(this.userlist[i].id).then(userSecond => {
+              this.user2 = userSecond;
+              this.selectedUserId = userSecond.id;
+
+              this.UserService.getMatchList().then(result => {
+                this.matchList = result;
+                  for (let i = 0; i < this.matchList.length; i++)
+                  {
+                    if (this.matchList[i].userId == this.selectedUserId && this.matchList[i].userId2 == this.myUserId && this.matchList[i].messages.length != 0)
+                    {
+                      for (let j = 0; j < this.matchList[i].messages.length; j++)
+                        {
+                          this.selectedUserBody.push(this.matchList[i].messages[j])
+                        }
+                    }
+
+                    if (this.matchList[i].userId == this.myUserId && this.matchList[i].userId2 == this.selectedUserId && this.matchList[i].messages.length != 0)
+                    {
+                      for (let j = 0; j < this.matchList[i].messages.length; j++)
+                        {
+                          this.myUserBody.push(this.matchList[i].messages[j])
+                        }
+                    }
+                  }
+              })
+            })
+          }
         }
-      }
-    })
+      })
+    } else {}
   }
 
-  pingUser(): void {
+  pingUser(userName): void {
     (<HTMLInputElement>document.querySelector("#sendMsg")).value = "";
+    this.selectedUserBody.length = 0;
+    this.selectedUser = userName;
+    displayName = userName;
+      this.UserService.getUserList().then(result => {
+        this.userlist = result;
+        for (let i = 0; i < this.userlist.length; i++)
+        {
+          if (this.userlist[i].username == userName)
+          {
+            this.UserService.getUserById(this.userlist[i].id).then(userSecond => {
+              this.user2 = userSecond;
+              this.selectedUserId = userSecond.id;
+
+              this.UserService.getMatchList().then(result => {
+                this.matchList = result;
+                  for (let i = 0; i < this.matchList.length; i++)
+                  {
+                    if (this.matchList[i].userId == this.selectedUserId && this.matchList[i].userId2 == this.myUserId && this.matchList[i].messages.length != 0)
+                    {
+                      for (let j = 0; j < this.matchList[i].messages.length; j++)
+                        {
+                          this.selectedUserBody.push(this.matchList[i].messages[j])
+                        }
+                    }
+                  }
+              })
+            })
+          }
+        }
+      })
   }
 }

@@ -20,17 +20,17 @@
 
     <div class="col mt-1">
       <div>
-        <h3>{{selectedUser}}</h3>
+        <h3 id="displayName">{{selectedUser}}</h3>
       </div>
       <div class="card">
-        <div class="card-body" *ngFor="let match of user.matches">
-          <div class="col text-left" *ngFor="let msg of match.messages">
-            <p *ngIf="selectedUser == match.name">{{msg.send}}</p>
+        <div class="card-body">
+          <div class="col text-left" *ngFor="let msg of selectedUserBody">
+            <p>{{msg.send}}</p>
           </div>
             <!-- let match2 of user2.matches-->
-            <div *ngFor="let match2 of user2.matches">
-              <div class="col text-right" *ngFor="let msg2 of match2.messages">
-                <p *ngIf="myUser == match2.name">{{msg2.send}}</p>
+            <div>
+              <div class="col text-right" *ngFor="let msg of myUserBody">
+                <p *ngIf="myUser == msg.fromUser">{{msg.send}}</p>
               </div>
             </div>
             <!-- If my username = to their user2.matches-->
@@ -42,7 +42,7 @@
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button" (click)="postMsg(selectedUser)">Send</button>
         </div>
-        <button class="btn btn-outline-secondary" type="button">Ping</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="pingUser(selectedUser)">Ping</button>
       </div>
     </div>
   </div>
