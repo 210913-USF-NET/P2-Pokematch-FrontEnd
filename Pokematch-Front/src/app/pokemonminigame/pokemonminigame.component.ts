@@ -157,12 +157,13 @@ else if(i == 4 )
       document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://i.gifer.com/K0kq.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
-      alert("You used " + this.move1 + "...it hit!")
+      alert("You used " + this.move1 + "...it hit! for " + userdamage)
       if(this.computerHealth <= 0)
       {
-      alert("player wins");
-      document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('computerhealth').innerHTML = "0";
+        alert("Player wins.");
+        document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (userchance == 2)
@@ -176,12 +177,13 @@ else if(i == 4 )
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.userHealth + ": user hp");
-      alert("Pokemongod1478 used " + computermove + "...it hit!")
+      alert("Pokemongod1478 used " + computermove + "...it hit! for " + computerdamage)
       if(this.userHealth <= 0)
       {
-      alert("Pokemongod1478 wins. Get good.");
-      document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('userhealth').innerHTML = "0";
+        alert("Pokemongod1478 wins. Get good.");
+        document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (computerchance == 2)
@@ -198,12 +200,13 @@ else if(i == 4 )
       document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://c.tenor.com/jQA-rWHlJXEAAAAC/self-destruct-pokemon.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
-      alert("You used " + this.move2 + "...it hit!")
+      alert("You used " + this.move1 + "...it hit! for " + userdamage)
       if(this.computerHealth <= 0)
       {
-      alert("player wins");
-      document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('computerhealth').innerHTML = "0";
+        alert("Player wins.");
+        document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (userchance == 2)
@@ -217,12 +220,13 @@ else if(i == 4 )
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.userHealth + ": user hp");
-      alert("Pokemongod1478 used " + computermove + "...it hit!")
+      alert("Pokemongod1478 used " + computermove + "...it hit! for " + computerdamage)
       if(this.userHealth <= 0)
       {
+      document.getElementById('userhealth').innerHTML = "0";
       alert("Pokemongod1478 wins. Get good.");
       document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+      this.router.navigate(['userprofile']);
       }
       }
       else if (computerchance == 2)
@@ -239,12 +243,13 @@ else if(i == 4 )
       document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://i.imgur.com/wYRdFed.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
-      alert("You used " + this.move3 + "...it hit!")
+      alert("You used " + this.move1 + "...it hit! for " + userdamage)
       if(this.computerHealth <= 0)
       {
-      alert("player wins");
-      document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('computerhealth').innerHTML = "0";
+        alert("Player wins.");
+        document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (userchance == 2)
@@ -258,12 +263,13 @@ else if(i == 4 )
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.userHealth + ": user hp");
-      alert("Pokemongod1478 used " + computermove + "...it hit!")
+      alert("Pokemongod1478 used " + computermove + "...it hit! for " + computerdamage)
       if(this.userHealth <= 0)
       {
-      alert("Pokemongod1478 wins. Get good.");
-      document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('userhealth').innerHTML = "0";
+        alert("Pokemongod1478 wins. Get good.");
+        document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (computerchance == 2)
@@ -280,12 +286,13 @@ else if(i == 4 )
       document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://thumbs.gfycat.com/DesertedFailingFrilledlizard-max-1mb.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
-      alert("You used " + this.move4 + "...it hit!")
+      alert("You used " + this.move1 + "...it hit! for " + userdamage)
       if(this.computerHealth <= 0)
       {
-      alert("player wins");
-      document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('computerhealth').innerHTML = "0";
+        alert("Player wins.");
+        document.getElementById('computerpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (userchance == 2)
@@ -299,12 +306,13 @@ else if(i == 4 )
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.userHealth + ": user hp");
-      alert("Pokemongod1478 used " + computermove + "...it hit!")
+      alert("Pokemongod1478 used " + computermove + "...it hit! for " + computerdamage)
       if(this.userHealth <= 0)
       {
-      alert("Pokemongod1478 wins. Get good.");
-      document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
-      return;
+        document.getElementById('userhealth').innerHTML = "0";
+        alert("Pokemongod1478 wins. Get good.");
+        document.getElementById('userpokemon').innerHTML = '<img src="' + 'https://c.tenor.com/bl_3kYhSzsgAAAAM/spongebob-rip-sad-sponge-bob.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
+        this.router.navigate(['userprofile']);
       }
       }
       else if (computerchance == 2)
