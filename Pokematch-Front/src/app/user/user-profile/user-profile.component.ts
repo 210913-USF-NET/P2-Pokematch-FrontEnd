@@ -52,7 +52,6 @@ export class UserProfileComponent implements OnInit {
             }
             document.getElementById('profilepic').innerHTML = this.user.profilepic;
             document.getElementById('yup').innerHTML = this.user.profilepic;
-            console.log(user);
           });
         }
       }

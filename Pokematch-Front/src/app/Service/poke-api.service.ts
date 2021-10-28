@@ -4,6 +4,7 @@ import { element } from '../models/element';
 import { user } from '../models/user';
 import { pokemon } from '../models/pokemon';
 import { match } from '../models/match';
+import { message } from '../models/message';
 import { move } from '../models/move';
 
 @Injectable({
@@ -58,17 +59,26 @@ export class PokeApiService {
   {
     return this.http.delete<pokemon>(this.pokeUrl+'/'+id).toPromise();
   }
+
   AddMatch(match: match): Promise<match>
   {
     return this.http.post<match>(this.matchUrl, match).toPromise();
   }
+
   getMatchList(): Promise<match[]>
   {
     return this.http.get<[]>(this.baseUrl + 'match').toPromise();
   }
+
+  postMessage(message: message): Promise<message>
+  {
+    return this.http.post<message>(this.baseUrl + 'message', message).toPromise();
+  }
+
   GetMovesFromElementId(id: number): Promise<move>
   {
     return this.http.get<move>(this.moveUrl +'/'+id).toPromise();
   }
+
 }
 
