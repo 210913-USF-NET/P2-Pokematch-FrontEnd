@@ -12,12 +12,19 @@
 
 
   <main>
-    <p>fdsjkddfs</p>
+    <p *ngIf="(auth.isAuthenticated$ | async) === false">Here at PokeMatch we want you to find your Nurse Joy</p>
     <div class="ml-1">
-        <button class="btn btn-success" (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$ | async) === false">
-          Register Now
-        </button>
-      </div>
+      <button class="btn btn-success" (click)="loginWithRedirect()" *ngIf="(auth.isAuthenticated$ | async) === false">
+        Register Now
+      </button>
+    </div>
+    <br>
+    <br>
+    <div class="bugCatcher">
+      <img src="assets/img/bugCatcher.png" height ="100">
+      <br>
+      <button class="btn btn-danger" (click)="bugCatcher()">Report a Bug Now</button>
+    </div>
   </main>
 
 
