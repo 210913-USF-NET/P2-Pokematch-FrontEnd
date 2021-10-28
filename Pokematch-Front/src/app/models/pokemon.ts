@@ -1,7 +1,8 @@
 export interface pokemon
 {
-    id: number;
-    name: string;
-
-    userid:[];
+    id?: number;
+    Name: string;
+    Hp: number;
+    imgUrl: string;
+    UserId: number;
 }
