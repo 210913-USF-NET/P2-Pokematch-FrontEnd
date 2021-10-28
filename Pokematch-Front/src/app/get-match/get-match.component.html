@@ -1,17 +1,19 @@
 <div class="container">
     <h1>Match With a User</h1>
     <br>
-    <button  type="button" class="btn btn-info btn-lg" (click)="GetUserOfType()">By Type</button>
-    
-    <button  type="button" class="btn btn-info btn-lg" (click)="GetUserOfPokemon()">By Type and Favorite Pokemon</button>
+    <button  type="button" class="btn btn-info" (click)="GetUserOfType()">By Type</button>
+    &nbsp;&nbsp;&nbsp;
+    <button  type="button" class="btn btn-info" (click)="GetUserOfPokemon()">By Type and Favorite Pokemon</button>
     <table class="table">
         <thead>
             <th>Name</th>
         </thead>
         <tbody>
             <tr *ngFor="let user of userlist">
-                <td>{{user.username}}</td>
-                <button  type="button" class="btn btn-info" (click)="Match(user)">Match</button>
+                <td>{{user.username}}
+                    <button  type="button" class="btn btn-info" (click)="Match(user)">Match</button>
+                </td>
+                
             </tr>
         </tbody>
     </table>
