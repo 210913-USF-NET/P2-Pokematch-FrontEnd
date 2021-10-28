@@ -11,6 +11,9 @@ export class UserCreationService {
   interest: string;
   profilepic: string;
   element: string;
+
+  changeProfile:boolean
+
   selectedpokemon: number;
   pokemonfavoritechange: number;
   constructor() { }

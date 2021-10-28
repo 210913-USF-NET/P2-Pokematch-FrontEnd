@@ -15,7 +15,7 @@ var wtf: string;
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService, private router: Router, private pokemonselection: UserCreationService) { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private pokeService: PokeApiService, private userService: UserCreationService, private router: Router) { }
 
   userlist: user[] = [];
 
@@ -31,15 +31,17 @@ export class UserProfileComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.userService.changeProfile = false;
+    this.userService.pokemonfavoritechange = null;
     this.auth.user$.subscribe(
       (profile) => (wtf = profile.email),
     );
-    this.UserService.getUserList().then(result => {
+    this.pokeService.getUserList().then(result => {
       this.userlist = result;
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].email == wtf) {
           this.user.id = this.userlist[i].id;
-          this.UserService.getUserById(this.user.id).then(user => {
+          this.pokeService.getUserById(this.user.id).then(user => {
             this.user = user;
 
             if (this.user.elementId == 1) {
@@ -53,36 +55,34 @@ export class UserProfileComponent implements OnInit {
             }
             document.getElementById('profilepic').innerHTML = this.user.profilepic;
             document.getElementById('yup').innerHTML = this.user.profilepic;
+
+            for(let i = 0; i < 4 ; i++)
+            {
+              document.getElementById('favorite'+[i + 1]).innerHTML = this.user.pokemons[i].imgUrl;
+              document.getElementById('favorite'+[i + 1] + '-name').innerHTML = this.user.pokemons[i].name
+            }
           });
         }
       }
     })
   };
 
-    Favorites()
-    {
-      for(let i = 1; i <= 3 ; i++)
-      {
-        document.getElementById('favorite'+[i]).innerHTML = this.user.pokemons[i-1].imgUrl;
-      }
-    }
-
     ChangeFavorite(select: number)
     {
       if(select == 1){
-        this.pokemonselection.pokemonfavoritechange = select -1;
+        this.userService.pokemonfavoritechange = select -1;
       // select = this.user.pokemons[0].id
       // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 2){
-        this.pokemonselection.pokemonfavoritechange = select -1;
+        this.userService.pokemonfavoritechange = select -1;
         // select = this.user.pokemons[1].id
         // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 3){
-        this.pokemonselection.pokemonfavoritechange = select -1;
+        this.userService.pokemonfavoritechange = select -1;
         // select = this.user.pokemons[2].id
         // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
@@ -91,8 +91,7 @@ export class UserProfileComponent implements OnInit {
 
     ChangeProfilePicture()
     {
-      this.user.profilepic = '';
-      this.UserService.updateUser(this.user);
+      this.userService.changeProfile = true
       this.router.navigate(['pokemon']);
     }
 
@@ -102,7 +101,7 @@ export class UserProfileComponent implements OnInit {
       {
         if(i == id)
         {
-          this.pokemonselection.selectedpokemon = id-1;
+          this.userService.selectedpokemon = id-1;
         }
       }
       this.router.navigate(['pokemonminigame']);
