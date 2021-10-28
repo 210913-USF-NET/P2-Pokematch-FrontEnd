@@ -4,7 +4,7 @@ import { PokeApiService } from '../service/poke-api.service';
 import { user } from '../models/user';
 import { AuthService } from '@auth0/auth0-angular';
 import { message } from '../models/message';
-var wtf: string;
+var globalEmail: string;
 
 
 var user2: user = {
@@ -53,12 +53,12 @@ export class MessageComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.user$.subscribe(
-      (profile) => (wtf = profile.email),
+      (profile) => (globalEmail = profile.email),
     );
     this.UserService.getUserList().then(result => {
       this.userlist = result;
       for (let i = 0; i < this.userlist.length; i++) {
-        if (this.userlist[i].email == wtf) {
+        if (this.userlist[i].email == globalEmail) {
           this.user.id = this.userlist[i].id;
           this.UserService.getUserById(this.user.id).then(user => {
               this.user = user;
