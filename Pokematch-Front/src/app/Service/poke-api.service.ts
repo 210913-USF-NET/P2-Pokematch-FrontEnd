@@ -4,6 +4,7 @@ import { element } from '../models/element';
 import { user } from '../models/user';
 import { pokemon } from '../models/pokemon';
 import { match } from '../models/match';
+import { move } from '../models/move';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class PokeApiService {
   userUrl: string = 'https://pokematch.azurewebsites.net/api/user';
 
   pokeUrl: string = 'https://pokematch.azurewebsites.net/api/pokemon';
-
+  moveUrl: string = 'https://pokematch.azurewebsites.net/api/Move';
   matchUrl: string = 'https://pokematch.azurewebsites.net/api/match';
 
   baseUrl: string = 'https://pokematch.azurewebsites.net/api/';
@@ -65,6 +66,9 @@ export class PokeApiService {
   {
     return this.http.get<[]>(this.baseUrl + 'match').toPromise();
   }
-
+  GetMovesFromElementId(id: number): Promise<move>
+  {
+    return this.http.get<move>(this.moveUrl +'/'+id).toPromise();
+  }
 }
 

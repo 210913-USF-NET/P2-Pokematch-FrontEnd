@@ -85,4 +85,16 @@ export class UserProfileComponent implements OnInit {
        this.router.navigate(['pokemon'])
        }
     }
+
+    ChangeProfilePicture()
+    {
+      this.user.profilepic = '';
+      this.UserService.UpdateUser(this.user);
+      this.router.navigate(['pokemon']);
+    }
+
+    Battle()
+    {
+      this.router.navigate(['pokemonminigame']);
+    }
 }
