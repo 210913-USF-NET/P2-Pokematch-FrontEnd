@@ -46,6 +46,6 @@ export class MatchComponent implements OnInit {
   }
 
   goToMessage() {
-    this.router.navigate(['message'])
+    this.router.navigate(['userprofile/message'])
   }
 }
