@@ -5,16 +5,13 @@
         <span class="fs-5 fw-semibold">Messages</span>
       </a>
 
-      <!-- This needs to be changed to the matchArray -->
         <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let user of fromUser; let i = index;" (click)="selectUser(fromUser[i])">
         <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
           <div class="d-flex w-100 align-items-center justify-content-between">
             <strong class="mb-1" id={{fromUser[i]}}>{{fromUser[i]}}</strong>
           </div>
-          <div class="col-10 mb-1 small">yes</div>
         </a>
       </div>
-      <!-- ^^^This needs to be changed to the matchArray^^^ -->
 
     </div>
 
@@ -28,11 +25,9 @@
             <p>{{msg.send}}</p>
           </div>
             <!-- let match2 of user2.matches-->
-            <div>
-              <div class="col text-right" *ngFor="let msg of myUserBody">
-                <p *ngIf="myUser == msg.fromUser">{{msg.send}}</p>
-              </div>
-            </div>
+          <div class="col text-right" *ngFor="let msg of myUserBody">
+            <p *ngIf="myUser == msg.fromUser">{{msg.send}}</p>
+          </div>
             <!-- If my username = to their user2.matches-->
 
         </div>

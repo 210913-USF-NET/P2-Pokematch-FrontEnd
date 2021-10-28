@@ -94,13 +94,6 @@ export class MessageComponent implements OnInit {
                   if (isMatched && this.user.id == this.user.matches[i].userId)
                   {
                     this.fromUser.push(this.user.matches[i].name);
-                    /*if (this.user.matches[i].messages.length >= 1)
-                    {
-                      for (let j = 0; j < this.user.matches[i].messages.length; j++)
-                      {
-                        this.myUserBody.push(this.user.matches[i].messages[j])
-                      }
-                    }*/
                   }
                 })
               }
@@ -113,11 +106,6 @@ export class MessageComponent implements OnInit {
   }
 
   postMsg(chosenUser): void{
-    console.log("selectedUser: " + this.selectedUser);
-    console.log("selectedUserId: " + this.selectedUserId);
-    console.log("myUser: " + this.myUser);
-    console.log("myUserId: " + this.myUserId);
-
     if(chosenUser != undefined)
     {
       let string = (<HTMLInputElement>document.querySelector("#sendMsg")).value;
