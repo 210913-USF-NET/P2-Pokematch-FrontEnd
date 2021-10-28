@@ -48,4 +48,9 @@ export class MatchComponent implements OnInit {
   goToMessage() {
     this.router.navigate(['userprofile/message'])
   }
+
+  unmatch(id:number) {
+    this.pokeService.deleteMatchById(id)
+    location.reload()
+  }
 }

@@ -7,8 +7,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let match of user.matches">
-                <td id="row">{{match.name}}
+                <td>{{match.name}}
                     <button (click)="goToMessage()">Message</button>
+                    <button (click)="unmatch(match.id)">Unmatch</button>
                 </td>
             </tr>
         </tbody>

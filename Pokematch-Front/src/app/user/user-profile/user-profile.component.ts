@@ -70,17 +70,17 @@ export class UserProfileComponent implements OnInit {
     {
       if(select == 1){
        select = this.user.pokemons[0].id
-       this.UserService.DeletePokemon(select);
+       this.UserService.deletePokemon(select);
        this.router.navigate(['pokemon'])
       }
       else if(select == 2){
         select = this.user.pokemons[1].id
-        this.UserService.DeletePokemon(select);
+        this.UserService.deletePokemon(select);
        this.router.navigate(['pokemon'])
        }
        else if(select == 3){
         select = this.user.pokemons[2].id
-        this.UserService.DeletePokemon(select);
+        this.UserService.deletePokemon(select);
        this.router.navigate(['pokemon'])
        }
     }
@@ -88,7 +88,7 @@ export class UserProfileComponent implements OnInit {
     ChangeProfilePicture()
     {
       this.user.profilepic = '';
-      this.UserService.UpdateUser(this.user);
+      this.UserService.updateUser(this.user);
       this.router.navigate(['pokemon']);
     }
 

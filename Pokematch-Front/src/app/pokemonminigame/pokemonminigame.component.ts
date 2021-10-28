@@ -92,7 +92,7 @@ export class PokemonminigameComponent implements OnInit {
   }
   for(let i = 1; i<=4; i++)
   {
-  this.UserService.GetMovesFromElementId(i).then(result => {this.move = result; document.getElementById('move'+i).innerHTML = this.move.action;
+  this.UserService.getMovesFromElementId(i).then(result => {this.move = result; document.getElementById('move'+i).innerHTML = this.move.action;
   if(i == 1 )
 {
   this.move1 = this.move.action
