@@ -53,8 +53,6 @@ export class MessageComponent implements OnInit {
               }
               this.selectedUser = this.fromUser[0];
               console.log(this.selectedUser);
-
-
               console.log(user);
               console.log(user.matches);
           });
