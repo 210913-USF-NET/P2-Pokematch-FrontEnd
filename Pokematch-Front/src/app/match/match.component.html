@@ -1,15 +1,12 @@
 <div class="container">
-    <h1>Matches</h1>
+    <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqM2tHN6L-DJuZZiiKtTOSyyB3jYFRdMU4dg&usqp=CAU" alt=""> Matches <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqM2tHN6L-DJuZZiiKtTOSyyB3jYFRdMU4dg&usqp=CAU" alt=""></h1>
     <br>
     <table class="table">
-        <thead>
-            <th>Name</th>
-        </thead>
         <tbody>
             <tr *ngFor="let match of user.matches">
-                <td>{{match.name}}
-                    <button (click)="goToMessage()">Message</button>
-                    <button (click)="unmatch(match.id)">Unmatch</button>
+                <td><b style="color: violet; font-size:20px;">{{match.name}}</b>
+                    <button (click)="goToMessage()" style="background-color: green; color: white;">Message</button>
+                    <button (click)="unmatch(match.id)" style="background-color: red; color:white;">Unmatch</button>
                 </td>
             </tr>
         </tbody>
