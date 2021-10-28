@@ -3,6 +3,7 @@ import { PokeApiService } from '../service/poke-api.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { user } from '../models/user';
 import { match } from '../models/match';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-match',
@@ -28,7 +29,7 @@ export class MatchComponent implements OnInit {
     
   };
 
-  constructor(private auth: AuthService, private pokeService: PokeApiService) { }
+  constructor(private router: Router, private auth: AuthService, private pokeService: PokeApiService) { }
 
   ngOnInit(): void {
     this.auth.user$.subscribe(profile => {
@@ -37,13 +38,14 @@ export class MatchComponent implements OnInit {
           if (profile.email == user.email) {
             this.pokeService.getUserById(user.id).then(e => {
               this.user = e
-
-              console.log(this.user.matches[0].imgUrl)
-              document.getElementById('profileImg').innerHTML = this.user.matches[0].imgUrl + "{{match.name}}";
             })
           }
         });
       })
     })
+  }
+
+  goToMessage() {
+    this.router.navigate(['message'])
   }
 }
