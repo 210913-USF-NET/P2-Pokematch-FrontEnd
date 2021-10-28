@@ -48,7 +48,6 @@ export class PokeApiService {
   {
     return this.http.post<match>(this.matchUrl, match).toPromise();
   }
-
   getMatchList(): Promise<match[]>
   {
     return this.http.get<[]>(this.baseUrl + 'match').toPromise();
