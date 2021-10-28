@@ -7,18 +7,7 @@ import { message } from '../models/message';
 var globalEmail: string;
 
 
-var user2: user = {
-  id: 0,
-  username: '',
-  email: '',
-  gender: '',
-  interest: '',
-  profilepic: '',
-  element: '',
 
-  matches: [],
-  pokemons: [],
-};
 
 @Component({
   selector: 'app-message',
@@ -35,6 +24,11 @@ export class MessageComponent implements OnInit {
   fromUser: string[] = [];
 
   selectedUser: string;
+  selectedUserId: number;
+
+  myUser: string;
+  myUserId: number;
+
 
   user: user = {
     id: 0,
@@ -49,7 +43,18 @@ export class MessageComponent implements OnInit {
     pokemons: [],
   };
 
+  user2: user = {
+    id: 0,
+    username: '',
+    email: '',
+    gender: '',
+    interest: '',
+    profilepic: '',
+    element: '',
 
+    matches: [],
+    pokemons: [],
+  };
 
   ngOnInit(): void {
     this.auth.user$.subscribe(
@@ -62,16 +67,14 @@ export class MessageComponent implements OnInit {
           this.user.id = this.userlist[i].id;
           this.UserService.getUserById(this.user.id).then(user => {
               this.user = user;
+
               for (let i = 0; i < this.user.matches.length; i++) {
                 this.UserService.getUserById(this.user.matches[i].userId2).then(userSecond => {
-                  console.log(userSecond);
-                  user2 = userSecond;
-
-                  console.log(user2)
+                  this.user2 = userSecond;
                   let isMatched: boolean = false;
-                  user2.matches.forEach(e => {
-                    console.log(e.userId2)
-                    console.log(user.id)
+                  this.user2.matches.forEach(e => {
+                    //console.log(e.userId2)
+                    //console.log(user.id)
                     if(e.userId2 == this.user.id)
                     {
                       isMatched = true;
@@ -84,10 +87,11 @@ export class MessageComponent implements OnInit {
                   }
                 })
               }
-              this.selectedUser = this.fromUser[0];
-              console.log(this.selectedUser);
-              console.log(user);
-              console.log(user.matches);
+              this.myUser = this.user.username;
+              this.myUserId = this.user.id;
+              //console.log(this.selectedUser);
+              //console.log(user);
+              //console.log(user.matches);
           });
         }
       }
@@ -100,5 +104,23 @@ export class MessageComponent implements OnInit {
 
   selectUser(userName): void {
     this.selectedUser = userName;
+    this.UserService.getUserList().then(result => {
+      this.userlist = result;
+      for (let i = 0; i < this.userlist.length; i++)
+      {
+        if (this.userlist[i].username == userName)
+        {
+          this.UserService.getUserById(this.userlist[i].id).then(userSecond => {
+            this.user2 = userSecond;
+          })
+        }
+      }
+    })
+
+
+  }
+
+  pingUser(): void {
+
   }
 }
