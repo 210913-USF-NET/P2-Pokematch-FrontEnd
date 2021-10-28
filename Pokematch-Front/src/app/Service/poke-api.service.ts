@@ -24,6 +24,8 @@ export class PokeApiService {
   /* Dependency injection. */
   constructor(private http: HttpClient) { }
 
+  /* --------------------- GET --------------------- */
+
   getElementList(): Promise<element[]>
   {
     return this.http.get<[]>(this.rootUrl).toPromise();
@@ -40,34 +42,33 @@ export class PokeApiService {
     return this.http.get<[]>(this.userUrl).toPromise();
   }
 
+  getMatchList(): Promise<match[]>
+  {
+    return this.http.get<[]>(this.baseUrl + 'match').toPromise();
+  }
+
+  getMovesFromElementId(id: number): Promise<move>
+  {
+    return this.http.get<move>(this.moveUrl +'/'+id).toPromise();
+  }
+
+
+  /* --------------------- POST --------------------- */
+
+
   addUser(user: user): Promise<user>
   {
     return this.http.post<user>(this.userUrl, user).toPromise();
   }
 
-  UpdateUser(user: user): Promise<user>
-  {
-    return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
-  }
-
-  AddPokemon(pokemon: pokemon): Promise<pokemon>
+  addPokemon(pokemon: pokemon): Promise<pokemon>
   {
     return this.http.post<pokemon>(this.pokeUrl, pokemon).toPromise();
   }
 
-  DeletePokemon(id: number): Promise<pokemon>
-  {
-    return this.http.delete<pokemon>(this.pokeUrl+'/'+id).toPromise();
-  }
-
-  AddMatch(match: match): Promise<match>
+  addMatch(match: match): Promise<match>
   {
     return this.http.post<match>(this.matchUrl, match).toPromise();
-  }
-
-  getMatchList(): Promise<match[]>
-  {
-    return this.http.get<[]>(this.baseUrl + 'match').toPromise();
   }
 
   postMessage(message: message): Promise<message>
@@ -75,10 +76,23 @@ export class PokeApiService {
     return this.http.post<message>(this.baseUrl + 'message', message).toPromise();
   }
 
-  GetMovesFromElementId(id: number): Promise<move>
+  /* --------------------- PUT --------------------- */
+
+  updateUser(user: user): Promise<user>
   {
-    return this.http.get<move>(this.moveUrl +'/'+id).toPromise();
+    return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
   }
 
+  /* --------------------- DELETE --------------------- */
+
+  deletePokemon(id: number): Promise<pokemon>
+  {
+    return this.http.delete<pokemon>(this.pokeUrl + '/' + id).toPromise();
+  }
+
+  deleteMatchById(id: number): Promise<match>
+  {
+    return this.http.delete<match>(this.matchUrl + '/' + id).toPromise();
+  }
 }
 

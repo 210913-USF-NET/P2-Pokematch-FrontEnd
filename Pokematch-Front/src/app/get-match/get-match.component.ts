@@ -113,7 +113,7 @@ export class GetMatchComponent implements OnInit {
         userId2: matchUser.id, 
         messages: []
       }
-      this.pokeService.AddMatch(match);
+      this.pokeService.addMatch(match);
       console.log(match)
 
       this.router.navigate(['match'])

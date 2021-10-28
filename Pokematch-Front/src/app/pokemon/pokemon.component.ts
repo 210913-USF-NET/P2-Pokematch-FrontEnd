@@ -117,7 +117,7 @@ export class PokemonComponent implements OnInit {
               console.log(user);
               this.user.profilepic = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
               document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
-              this.UserService.UpdateUser(user)
+              this.UserService.updateUser(user)
             });
           }
         }
@@ -145,7 +145,7 @@ export class PokemonComponent implements OnInit {
             this.charizard.UserId = this.user.id;
             this.charizard.Name = pokenames[net - 1];
             this.charizard.imgUrl = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
-            this.UserService.AddPokemon(this.charizard)
+            this.UserService.addPokemon(this.charizard)
             alert("You have selected " + pokenames[net - 1])
             favoritepokemon.push(pokelist[net - 1]);
             return;
@@ -205,7 +205,7 @@ export class PokemonComponent implements OnInit {
               this.user = user;
               this.user.profilepic = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
               document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
-              this.UserService.UpdateUser(user)
+              this.UserService.updateUser(user)
             });
           }
         }
@@ -231,7 +231,7 @@ export class PokemonComponent implements OnInit {
             this.charizard.UserId = this.user.id;
             this.charizard.Name = pokenames[z - 1];
             this.charizard.imgUrl = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
-            this.UserService.AddPokemon(this.charizard)
+            this.UserService.addPokemon(this.charizard)
             alert("You have selected " + pokenames[z - 1])
             favoritepokemon.push(pokelist[z - 1]);
             return;
