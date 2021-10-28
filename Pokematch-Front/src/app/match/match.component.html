@@ -5,9 +5,11 @@
         <thead>
             <th>Name</th>
         </thead>
-        <tbody id="profileImg">
+        <tbody>
             <tr *ngFor="let match of user.matches">
-                <td></td>
+                <td id="row">{{match.name}}
+                    <button (click)="goToMessage()">Message</button>
+                </td>
             </tr>
         </tbody>
     </table>
