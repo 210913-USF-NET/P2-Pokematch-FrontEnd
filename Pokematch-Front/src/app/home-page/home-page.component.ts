@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit {
   }
 
   loginWithRedirect(): void {
-    this.auth.loginWithRedirect({ screen_hint: 'signup' });
+    this.auth.loginWithRedirect({ screen_hint: 'signup', appState: { target: '/buffer' } });
   }
 
   bugCatcher(): void { 
