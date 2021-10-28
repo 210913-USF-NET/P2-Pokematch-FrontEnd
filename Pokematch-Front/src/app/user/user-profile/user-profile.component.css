@@ -8,7 +8,7 @@
     overflow: hidden;
     width: 150px;
     height: 150px;
-    position: relative;
+    position: absolute;
     z-index: 4;
 
 }
