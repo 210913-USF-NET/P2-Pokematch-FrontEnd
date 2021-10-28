@@ -5,6 +5,7 @@ import { user } from '../../models/user';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
 import { pokemon } from 'src/app/models/pokemon';
+import { UserCreationService } from 'src/app/service/user-creation.service';
 
 var wtf: string;
 @Component({
@@ -14,7 +15,7 @@ var wtf: string;
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService, private router: Router) { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private pokeService: PokeApiService, private userService: UserCreationService, private router: Router) { }
 
   userlist: user[] = [];
 
@@ -33,12 +34,12 @@ export class UserProfileComponent implements OnInit {
     this.auth.user$.subscribe(
       (profile) => (wtf = profile.email),
     );
-    this.UserService.getUserList().then(result => {
+    this.pokeService.getUserList().then(result => {
       this.userlist = result;
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].email == wtf) {
           this.user.id = this.userlist[i].id;
-          this.UserService.getUserById(this.user.id).then(user => {
+          this.pokeService.getUserById(this.user.id).then(user => {
             this.user = user;
 
             if (this.user.elementId == 1) {
@@ -70,25 +71,25 @@ export class UserProfileComponent implements OnInit {
     {
       if(select == 1){
       select = this.user.pokemons[0].id
-      this.UserService.deletePokemon(select);
+      this.pokeService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 2){
         select = this.user.pokemons[1].id
-        this.UserService.deletePokemon(select);
+        this.pokeService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 3){
         select = this.user.pokemons[2].id
-        this.UserService.deletePokemon(select);
+        this.pokeService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
     }
 
     ChangeProfilePicture()
     {
-      this.user.profilepic = '';
-      this.UserService.updateUser(this.user);
+      this.userService.changeProfile = true
+      this.pokeService.updateUser(this.user);
       this.router.navigate(['pokemon']);
     }
 

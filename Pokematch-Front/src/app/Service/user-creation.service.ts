@@ -12,5 +12,7 @@ export class UserCreationService {
   profilepic: string;
   element: string;
 
+  changeProfile:boolean
+
   constructor() { }
 }
