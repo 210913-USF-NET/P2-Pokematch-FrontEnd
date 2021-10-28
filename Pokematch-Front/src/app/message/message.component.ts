@@ -13,6 +13,7 @@ var wtf: string;
 })
 export class MessageComponent implements OnInit {
 
+
   constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService) { }
 
   userlist: user[] = [];
@@ -34,6 +35,20 @@ export class MessageComponent implements OnInit {
     pokemons: [],
   };
 
+  user2: user = {
+    id: 0,
+    username: '',
+    email: '',
+    gender: '',
+    interest: '',
+    profilepic: '',
+    element: '',
+
+    matches: [],
+    pokemons: [],
+  };
+
+
   ngOnInit(): void {
     this.auth.user$.subscribe(
       (profile) => (wtf = profile.email),
@@ -46,8 +61,23 @@ export class MessageComponent implements OnInit {
           this.UserService.getUserById(this.user.id).then(user => {
               this.user = user;
               for (let i = 0; i < this.user.matches.length; i++) {
-                if (this.user.id == this.user.matches[i].userId)
-                {
+                this.UserService.getUserById(this.user.matches[i].userId2).then(user2 => {
+                  this.user2 = user2;
+                })
+                console.log(this.user2)
+                let isMatched: boolean = false;
+                this.user2.matches.forEach(e => {
+                  console.log(e.userId2)
+                  console.log(user.id)
+                  if(e.userId2 == this.user.id)
+                  {
+                    isMatched = true;
+                  }
+                })
+                // if user2 matches this.user.matches
+                // then push the user name matches into fromUser
+                if (isMatched && this.user.id == this.user.matches[i].userId)
+                { //instead of this ^^^^
                   this.fromUser.push(this.user.matches[i].name);
                 }
               }
