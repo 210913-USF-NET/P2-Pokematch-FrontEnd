@@ -5,7 +5,6 @@ import { user } from '../models/user';
 import { PokeApiService } from '../service/poke-api.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { move } from '../models/move';
-import { UserCreationService } from '../service/user-creation.service';
 
 @Component({
   selector: 'app-pokemonminigame',
@@ -14,7 +13,7 @@ import { UserCreationService } from '../service/user-creation.service';
 })
 export class PokemonminigameComponent implements OnInit {
 
-  constructor(private router: Router, private UserService: PokeApiService, public auth: AuthService, private pokemonselection: UserCreationService) { }
+  constructor(private router: Router, private UserService: PokeApiService, public auth: AuthService) { }
 
   userlist: user[] = [];
 
@@ -68,7 +67,7 @@ export class PokemonminigameComponent implements OnInit {
         this.user.id = this.userlist[i].id;
         this.UserService.getUserById(this.user.id).then(user => {
           this.user = user;
-          document.getElementById('userpokemon').innerHTML = this.user.pokemons[this.pokemonselection.selectedpokemon].imgUrl;
+          document.getElementById('userpokemon').innerHTML = this.user.pokemons[randompokemon].imgUrl;
         });
       }
     }
@@ -119,17 +118,14 @@ else if(i == 4 )
 
   finishHim(action: string)
   {
-    let userchance = Math.floor(Math.random() * (2 + 1));
-    let computerchance = Math.floor(Math.random() * (2 + 1));
-    console.log(userchance)
-    console.log(computerchance)
+    let userchance = Math.floor(Math.random() * (10 + 1));
+    let computerchance = Math.floor(Math.random() * (10 + 1));
     let userdamage = Math.floor(Math.random() * (100 + 1));;
     let computerdamage = Math.floor(Math.random() * (100 + 1));;
     let computermoveroll = Math.floor(Math.random() * (4 + 1));;
-    console.log(computermoveroll + " yup")
     let computermove = '';
     let computermoveimg = '';
-    if(computermoveroll == 1 || computermoveroll == 0)
+    if(computermoveroll == 1)
     {
       computermove = this.move1;
       computermoveimg = 'https://i.gifer.com/K0kq.gif';
@@ -151,10 +147,10 @@ else if(i == 4 )
     }
     if(action == "move1")
     {
-      if(userchance == 1 || userchance == 0)
+      if(userchance > 5)
       {
       this.computerHealth = this.computerHealth - userdamage;
-      document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
+      document.getElementById('computerhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://i.gifer.com/K0kq.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
       alert("You used " + this.move1 + "...it hit!")
@@ -165,12 +161,12 @@ else if(i == 4 )
       return;
       }
       }
-      else if (userchance == 2)
+      else if (userchance < 5)
       {
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://i.gifer.com/K0kq.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("You used " + this.move1 +" ...it missed!")
       }
-      if(computerchance == 1 || computerchance == 0)
+      if(computerchance > 5)
       {
       this.userHealth = this.userHealth - computerdamage;
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
@@ -184,7 +180,7 @@ else if(i == 4 )
       return;
       }
       }
-      else if (computerchance == 2)
+      else if (computerchance < 5)
       {
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("Pokemongod1478 used " + computermove +" ...it missed!")
@@ -192,10 +188,10 @@ else if(i == 4 )
     }
     if(action == "move2")
     {
-      if(userchance == 1 || userchance == 0)
+      if(userchance > 5)
       {
       this.computerHealth = this.computerHealth - userdamage;
-      document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
+      document.getElementById('computerhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://c.tenor.com/jQA-rWHlJXEAAAAC/self-destruct-pokemon.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
       alert("You used " + this.move2 + "...it hit!")
@@ -206,12 +202,12 @@ else if(i == 4 )
       return;
       }
       }
-      else if (userchance == 2)
+      else if (userchance < 5)
       {
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://c.tenor.com/jQA-rWHlJXEAAAAC/self-destruct-pokemon.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("You used " + this.move2 +" ...it missed!")
       }
-      if(computerchance == 1 || computerchance == 0)
+      if(computerchance > 5)
       {
       this.userHealth = this.userHealth - computerdamage;
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
@@ -225,7 +221,7 @@ else if(i == 4 )
       return;
       }
       }
-      else if (computerchance == 2)
+      else if (computerchance < 5)
       {
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("Pokemongod1478 used " + computermove +" ...it missed!")
@@ -233,10 +229,10 @@ else if(i == 4 )
     }
     if(action == "move3")
     {
-      if(userchance == 1 || userchance == 0)
+      if(userchance > 5)
       {
       this.computerHealth = this.computerHealth - userdamage;
-      document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
+      document.getElementById('computerhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://i.imgur.com/wYRdFed.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
       alert("You used " + this.move3 + "...it hit!")
@@ -247,12 +243,12 @@ else if(i == 4 )
       return;
       }
       }
-      else if (userchance == 2)
+      else if (userchance < 5)
       {
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://i.imgur.com/wYRdFed.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("You used " + this.move3 +" ...it missed!")
       }
-      if(computerchance == 1 || computerchance == 0)
+      if(computerchance > 5)
       {
       this.userHealth = this.userHealth - computerdamage;
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
@@ -266,7 +262,7 @@ else if(i == 4 )
       return;
       }
       }
-      else if (computerchance == 2)
+      else if (computerchance < 5)
       {
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("Pokemongod1478 used " + computermove +" ...it missed!")
@@ -274,10 +270,10 @@ else if(i == 4 )
     }
     if(action == "move4")
     {
-      if(userchance == 1 || userchance == 0)
+      if(userchance > 5)
       {
       this.computerHealth = this.computerHealth - userdamage;
-      document.getElementById('computerhealth').innerHTML = this.computerHealth.toString() + ': HP';
+      document.getElementById('computerhealth').innerHTML = this.userHealth.toString() + ': HP';
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://thumbs.gfycat.com/DesertedFailingFrilledlizard-max-1mb.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       console.log(this.computerHealth + ": computer hp");
       alert("You used " + this.move4 + "...it hit!")
@@ -288,12 +284,12 @@ else if(i == 4 )
       return;
       }
       }
-      else if (userchance == 2)
+      else if (userchance < 5)
       {
       document.getElementById('pikachu').innerHTML = '<img src="' + 'https://thumbs.gfycat.com/DesertedFailingFrilledlizard-max-1mb.gif' + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("You used " + this.move4 +" ...it missed!")
       }
-      if(computerchance == 1 || computerchance == 0)
+      if(computerchance > 5)
       {
       this.userHealth = this.userHealth - computerdamage;
       document.getElementById('userhealth').innerHTML = this.userHealth.toString() + ': HP';
@@ -307,7 +303,7 @@ else if(i == 4 )
       return;
       }
       }
-      else if (computerchance == 2)
+      else if (computerchance < 5)
       {
       document.getElementById('ditto').innerHTML = '<img src="' + computermoveimg + ('" /><img src="') + 'width = "50"' + 'height="50"'
       alert("Pokemongod1478 used " + computermove +" ...it missed!")

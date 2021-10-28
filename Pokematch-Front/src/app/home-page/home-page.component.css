@@ -28,7 +28,7 @@ header {
 main {
   background: linear-gradient(to bottom, #ffffff 0%, #FBE4E9 100%);
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 10vh 0 80vh;
+  padding: 10vh 0 20vh;
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -47,7 +47,9 @@ small {
   font-weight: 300;
 }
   
-
+.bugCatcher {
+  padding: 30vh 0 0;
+}
 
 
 
