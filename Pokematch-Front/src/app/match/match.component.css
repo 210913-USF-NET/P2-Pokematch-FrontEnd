@@ -3,3 +3,11 @@
     font-weight: 900;
     color: #ff8b88;
 }
+button {
+    margin: .5rem;
+}
+
+img {
+    height: auto;
+    width: 10%;
+}
