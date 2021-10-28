@@ -3,6 +3,7 @@
     <div class="container mt-5 d-flex justify-content-center">
         <div class="card p-3">
                 <div class="ml-3 w-100">
+                <div class="d-flex justify-content-center">
                     <div class="fire" *ngIf="user.element == 'Fire'">
                         <img src="https://www.clipartmax.com/png/full/83-830894_fire-type-pokemon-symbol-pokemon-fire-type-logo.png">
                     </div>
@@ -14,13 +15,13 @@
                     <div class="water" *ngIf="user.element == 'Water'">
                         <img src="https://www.clipartmax.com/png/full/26-261578_pokemon-water-type-symbol.png">
                     </div> 
-                    
-                    <h1 class="mb-0 mt-0">{{user.username}}</h1>
-                    <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                        <div id="work"></div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                    <h1 class="mb-0 mt-0"><div class="image" id="yup" class="rounded" width="155"></div>{{user.username}}</h1>
+                    </div>
                         
                     </div>
-                    <div class="button mt-2 d-flex flex-row align-items-center">
+                    <div class="d-flex justify-content-center">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button class="btn btn-sm btn-info" routerLink="message">Messages</button>
                         <button class="btn btn-sm btn-info" id="favorites" (click)="Favorites()">My favorite pokemon</button>
@@ -34,9 +35,9 @@
                         <li><p id = "favorite3"></p><button (click)="ChangeFavorite(3)" >Change favorite</button><button (click)="Battle()">Battle</button></li>
                     </ol>
 
-                    <div class="d-flex align-items-center">
-                <div class="image" id="yup" class="rounded" width="155"></div>
+                    
+                
                 </div>
             </div>
         </div>
-    </div>
+    
