@@ -117,8 +117,11 @@ export class PokemonComponent implements OnInit {
               console.log(user);
               this.user.profilepic = '<img src="' + pokelist[net - 1] + '" />';
               document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
-              this.router.navigate(['userprofile']);
               this.UserService.updateUser(user)
+
+              if (this.user.pokemons[2] != null) {
+                this.router.navigate(['userprofile'])
+              }
             });
           }
         }

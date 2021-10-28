@@ -1,18 +1,26 @@
-.body {
-    background-color: aqua;
+
+.container {
+    max-width: 970px;
+    max-height: 970px;
+}
+
+.image {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    z-index: 4;
+
 }
 
 .card {
-    width: 400px;
+    width: 600px;
+    height: 900px;
     border: none;
     border-radius: 10px;
     background-color: #fff
 }
 
-.stats {
-    background: #f2f5f8 !important;
-    color: #000 !important
-}
 
 .pokemon {
     font-size: 10px;
@@ -24,20 +32,60 @@
 }
 
 .fire > img {
-    width: 20%;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 4;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    
 }
 
 .grass > img {
-    width: 20%;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 4;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    
 }
 
 .water > img {
-    width: 20%;
-    height: auto;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 4;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    
 }
 
-.image > img {
-    width: 1000;
+.wrapper {
+    
+    width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 20px;
+    padding-top: 100px;
+    display: flex;
+    background-image: linear-gradient(-20deg, #f5e0e0 0%, #f06eaf 100%);
+
+}
+
+.header img {
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+#header h1 {
+    margin:0;
 }
