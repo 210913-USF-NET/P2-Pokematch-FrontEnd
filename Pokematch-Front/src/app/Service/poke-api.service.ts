@@ -4,6 +4,7 @@ import { element } from '../models/element';
 import { user } from '../models/user';
 import { pokemon } from '../models/pokemon';
 import { match } from '../models/match';
+import { message } from '../models/message';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,11 @@ export class PokeApiService {
   getMatchList(): Promise<match[]>
   {
     return this.http.get<[]>(this.baseUrl + 'match').toPromise();
+  }
+
+  postMessage(message: message): Promise<message>
+  {
+    return this.http.post<message>(this.baseUrl + 'message', message).toPromise();
   }
 
 }

@@ -38,9 +38,9 @@
         </div>
       </div>
       <div class="input-group mb-3">
-        <input id="sendMsg" type="text" class="form-control" placeholder="Send a message!" aria-label="Send a message!" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Send a message!" aria-label="Send a message!" aria-describedby="basic-addon2" id="sendMsg">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Send</button>
+            <button class="btn btn-outline-secondary" type="button" (click)="postMsg(selectedUser)">Send</button>
         </div>
         <button class="btn btn-outline-secondary" type="button">Ping</button>
       </div>

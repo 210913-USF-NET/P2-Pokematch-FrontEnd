@@ -25,10 +25,18 @@ export class MessageComponent implements OnInit {
 
   selectedUser: string;
   selectedUserId: number;
+  selectedUserBody: message[];
 
   myUser: string;
   myUserId: number;
+  myUserBody: message[];
 
+  message: message = {
+    toUser: '',
+    fromUser: '',
+    send: '',
+    matchId: 0
+  };
 
   user: user = {
     id: 0,
@@ -73,12 +81,10 @@ export class MessageComponent implements OnInit {
                   this.user2 = userSecond;
                   let isMatched: boolean = false;
                   this.user2.matches.forEach(e => {
-                    //console.log(e.userId2)
-                    //console.log(user.id)
-                    if(e.userId2 == this.user.id)
-                    {
-                      isMatched = true;
-                    }
+                  if(e.userId2 == this.user.id)
+                  {
+                    isMatched = true;
+                  }
                   })
 
                   if (isMatched && this.user.id == this.user.matches[i].userId)
@@ -89,20 +95,38 @@ export class MessageComponent implements OnInit {
               }
               this.myUser = this.user.username;
               this.myUserId = this.user.id;
-              //console.log(this.selectedUser);
-              //console.log(user);
-              //console.log(user.matches);
           });
         }
       }
     })
   }
 
-  postMsg(): void{
+  postMsg(chosenUser): void{
+    console.log("selectedUser: " + this.selectedUser);
+    console.log("selectedUserId: " + this.selectedUserId);
+    console.log("myUser: " + this.myUser);
+    console.log("myUserId: " + this.myUserId);
 
+    if(chosenUser != undefined)
+    {
+      console.log(this.myUser);
+      let string = (<HTMLInputElement>document.querySelector("#sendMsg")).value;
+      if (string.trim() != "")
+      {
+        
+        this.message.toUser = this.selectedUser;
+        this.message.fromUser = this.myUser;
+        this.message.send = string;
+        console.log(this.message);
+        //this is not ready yet! remove after confirming ^^^^^
+        //this.UserService.postMessage(this.message)
+      }
+    }
+    this.pingUser();
   }
 
   selectUser(userName): void {
+    (<HTMLInputElement>document.querySelector("#sendMsg")).value = "";
     this.selectedUser = userName;
     this.UserService.getUserList().then(result => {
       this.userlist = result;
@@ -112,15 +136,15 @@ export class MessageComponent implements OnInit {
         {
           this.UserService.getUserById(this.userlist[i].id).then(userSecond => {
             this.user2 = userSecond;
+            this.selectedUserId = userSecond.id;
+            console.log(userSecond);
           })
         }
       }
     })
-
-
   }
 
   pingUser(): void {
-
+    (<HTMLInputElement>document.querySelector("#sendMsg")).value = "";
   }
 }
