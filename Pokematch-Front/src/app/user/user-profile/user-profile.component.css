@@ -1,10 +1,7 @@
 
-.body {
-    background-color: aqua;
-}
-
 .container {
     max-width: 970px;
+    max-height: 970px;
 }
 
 .image {
@@ -18,6 +15,7 @@
 
 .card {
     width: 600px;
+    height: 900px;
     border: none;
     border-radius: 10px;
     background-color: #fff
@@ -82,3 +80,12 @@
 
 }
 
+.header img {
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+#header h1 {
+    margin:0;
+}

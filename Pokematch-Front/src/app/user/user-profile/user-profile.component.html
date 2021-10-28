@@ -2,8 +2,7 @@
 <div class="wrapper">
     <div class="container mt-5 d-flex justify-content-center">
         <div class="card p-3">
-            <div class="d-flex align-items-center">
-                <div class="image" id="yup" class="rounded"></div>
+        
                 <div class="ml-3 w-100">
                 <div class="d-flex justify-content-center">
                     <div class="fire" *ngIf="user.element == 'Fire'">
@@ -19,15 +18,22 @@
                     <div class="water" *ngIf="user.element == 'Water'">
                         <img src="https://www.clipartmax.com/png/full/26-261578_pokemon-water-type-symbol.png">
                     </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                    <h1 class="mb-0 mt-0">{{user.username}}</h1><div class="image" id="yup" class="rounded"></div>
+                    </div>
 
-                    <h1 class="mb-0 mt-0">{{user.username}}</h1>
-
-                    <div class="button mt-2 d-flex flex-row align-items-center">
+                        <div class="d-flex justify-content-center">
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <button class="btn btn-sm btn-outline-info w-100" id="favorites" (click)="Favorites()">My
                             favorite pokemon</button>
                         <button class="btn btn-sm btn-outline-info w-100" id="Changeprofilepic"
                             (click)="ChangeProfilePicture()">Change Profile Picture</button>
                     </div>
+                    </div>
+
+
+                    
                     <ol>
                         <li>
                             <p id="favorite1"></p><button (click)="ChangeFavorite(1)">Change favorite</button><button
@@ -42,11 +48,9 @@
                                 (click)="Battle()">Battle</button>
                         </li>
                     </ol>
-
-                    
                 
                 </div>
             </div>
         </div>
     </div>
-</body>
+
