@@ -5,6 +5,7 @@ import { user } from '../../models/user';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
 import { pokemon } from 'src/app/models/pokemon';
+import { UserCreationService } from 'src/app/service/user-creation.service';
 
 var wtf: string;
 @Component({
@@ -14,7 +15,7 @@ var wtf: string;
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService, private router: Router) { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService, private router: Router, private pokemonselection: UserCreationService) { }
 
   userlist: user[] = [];
 
@@ -92,8 +93,15 @@ export class UserProfileComponent implements OnInit {
       this.router.navigate(['pokemon']);
     }
 
-    Battle()
+    Battle(id: number)
     {
+      for(let i = 1; i <=3; i++)
+      {
+        if(i == id)
+        {
+          this.pokemonselection.selectedpokemon = id-1;
+        }
+      }
       this.router.navigate(['pokemonminigame']);
     }
 }
