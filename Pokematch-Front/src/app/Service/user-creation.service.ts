@@ -12,5 +12,6 @@ export class UserCreationService {
   profilepic: string;
   element: string;
   selectedpokemon: number;
+  pokemonfavoritechange: number;
   constructor() { }
 }

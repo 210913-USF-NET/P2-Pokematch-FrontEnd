@@ -70,18 +70,21 @@ export class UserProfileComponent implements OnInit {
     ChangeFavorite(select: number)
     {
       if(select == 1){
-      select = this.user.pokemons[0].id
-      this.UserService.deletePokemon(select);
+        this.pokemonselection.pokemonfavoritechange = select -1;
+      // select = this.user.pokemons[0].id
+      // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 2){
-        select = this.user.pokemons[1].id
-        this.UserService.deletePokemon(select);
+        this.pokemonselection.pokemonfavoritechange = select -1;
+        // select = this.user.pokemons[1].id
+        // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 3){
-        select = this.user.pokemons[2].id
-        this.UserService.deletePokemon(select);
+        this.pokemonselection.pokemonfavoritechange = select -1;
+        // select = this.user.pokemons[2].id
+        // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
     }
