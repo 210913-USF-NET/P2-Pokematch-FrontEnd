@@ -11,6 +11,8 @@ import { BufferComponent } from './buffer/buffer.component';
 import { MessageComponent } from './message/message.component';
 import { MatchComponent } from './match/match.component';
 import { GetMatchComponent } from './get-match/get-match.component';
+import { PokemonminigameComponent } from './pokemonminigame/pokemonminigame.component';
+import { MovesComponent } from './moves/moves.component';
 
 const routes: Routes = [
   /* ----- Home ----- */
@@ -68,6 +70,15 @@ const routes: Routes = [
   {
     path: 'userprofile/message',
     component: MessageComponent
+  },
+
+  {
+    path: 'pokemonminigame',
+    component: PokemonminigameComponent
+  },
+  {
+    path: 'moves',
+    component: MovesComponent
   }
 ];
 

@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { element } from '../models/element';
 import { user } from '../models/user';
+import { pokemon } from '../models/pokemon';
 import { match } from '../models/match';
+import { message } from '../models/message';
+import { move } from '../models/move';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,9 @@ import { match } from '../models/match';
 export class PokeApiService {
   rootUrl: string = 'https://pokematch.azurewebsites.net/api/element';
   userUrl: string = 'https://pokematch.azurewebsites.net/api/user';
+
+  pokeUrl: string = 'https://pokematch.azurewebsites.net/api/pokemon';
+  moveUrl: string = 'https://pokematch.azurewebsites.net/api/Move';
   matchUrl: string = 'https://pokematch.azurewebsites.net/api/match';
 
   baseUrl: string = 'https://pokematch.azurewebsites.net/api/';
@@ -44,15 +50,35 @@ export class PokeApiService {
     return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
   }
 
+  AddPokemon(pokemon: pokemon): Promise<pokemon>
+  {
+    return this.http.post<pokemon>(this.pokeUrl, pokemon).toPromise();
+  }
+
+  DeletePokemon(id: number): Promise<pokemon>
+  {
+    return this.http.delete<pokemon>(this.pokeUrl+'/'+id).toPromise();
+  }
+
   AddMatch(match: match): Promise<match>
   {
     return this.http.post<match>(this.matchUrl, match).toPromise();
   }
+
   getMatchList(): Promise<match[]>
   {
     return this.http.get<[]>(this.baseUrl + 'match').toPromise();
   }
 
+  postMessage(message: message): Promise<message>
+  {
+    return this.http.post<message>(this.baseUrl + 'message', message).toPromise();
+  }
+
+  GetMovesFromElementId(id: number): Promise<move>
+  {
+    return this.http.get<move>(this.moveUrl +'/'+id).toPromise();
+  }
 
 }
 

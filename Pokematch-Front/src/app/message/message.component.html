@@ -20,23 +20,29 @@
 
     <div class="col mt-1">
       <div>
-        <h3>{{selectedUser}}</h3>
+        <h3 id="displayName">{{selectedUser}}</h3>
       </div>
       <div class="card">
-        <div class="card-body" *ngFor="let match of user.matches;">
-          <div class="col text-left" *ngFor="let msg of match.messages">
-            <p *ngIf="selectedUser == match.name">{{msg.send}}</p>
+        <div class="card-body">
+          <div class="col text-left" *ngFor="let msg of selectedUserBody">
+            <p>{{msg.send}}</p>
           </div>
-          <div class="col text-right">
-            <p>yes (i'm a placeholder)</p>
-          </div>
+            <!-- let match2 of user2.matches-->
+            <div>
+              <div class="col text-right" *ngFor="let msg of myUserBody">
+                <p *ngIf="myUser == msg.fromUser">{{msg.send}}</p>
+              </div>
+            </div>
+            <!-- If my username = to their user2.matches-->
+
         </div>
       </div>
       <div class="input-group mb-3">
-        <input id="sendMsg" type="text" class="form-control" placeholder="Send a message!" aria-label="Send a message!" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Send a message!" aria-label="Send a message!" aria-describedby="basic-addon2" id="sendMsg">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Send</button>
+            <button class="btn btn-outline-secondary" type="button" (click)="postMsg(selectedUser)">Send</button>
         </div>
+        <button class="btn btn-outline-secondary" type="button" (click)="pingUser(selectedUser)">Ping</button>
       </div>
     </div>
   </div>
