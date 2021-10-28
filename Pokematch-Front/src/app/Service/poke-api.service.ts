@@ -44,15 +44,13 @@ export class PokeApiService {
     return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
   }
 
-<<<<<<< HEAD
   AddMatch(match: match): Promise<match>
   {
     return this.http.post<match>(this.matchUrl, match).toPromise();
-=======
+  }
   getMatchList(): Promise<match[]>
   {
     return this.http.get<[]>(this.baseUrl + 'match').toPromise();
->>>>>>> 443d6613da3d330cc84e21a4f0cacf686efc44bf
   }
 
 
