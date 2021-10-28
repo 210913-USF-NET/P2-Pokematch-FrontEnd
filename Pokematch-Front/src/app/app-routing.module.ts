@@ -10,6 +10,7 @@ import { UserCreationComponent } from './user/user-creation/user-creation.compon
 import { BufferComponent } from './buffer/buffer.component';
 import { MessageComponent } from './message/message.component';
 import { MatchComponent } from './match/match.component';
+import { GetMatchComponent } from './get-match/get-match.component';
 
 const routes: Routes = [
   /* ----- Home ----- */
@@ -58,7 +59,11 @@ const routes: Routes = [
     path: 'match',
     component: MatchComponent
   },
-
+  /* ----- GetMatch ----- */
+  {
+    path: 'get-match',
+    component: GetMatchComponent
+  },
   /* ----- Message ----- */
   {
     path: 'userprofile/message',
