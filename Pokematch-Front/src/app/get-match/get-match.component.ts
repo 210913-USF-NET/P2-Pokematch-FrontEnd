@@ -56,7 +56,7 @@ export class GetMatchComponent implements OnInit {
         r.forEach(user => {
           let isMatched: boolean = false;
           aUser.matches.forEach(e => {
-            if(e.userId == user.id)
+            if(e.userId2 == user.id)
             {
               isMatched = true;
             }
@@ -77,7 +77,7 @@ export class GetMatchComponent implements OnInit {
         r.forEach(user => {
           let isMatched: boolean = false;
           aUser.matches.forEach(e => {
-            if(e.userId == user.id)
+            if(e.userId2 == user.id)
             {
               isMatched = true;
             }
@@ -109,8 +109,8 @@ export class GetMatchComponent implements OnInit {
       console.log(matchUser);
       let match: match = {
         name: aUser.username,
-        userId: matchUser.id, 
-        userId2: aUser.id, 
+        userId: aUser.id, 
+        userId2: matchUser.id, 
         messages: []
       }
       this.pokeService.AddMatch(match);
