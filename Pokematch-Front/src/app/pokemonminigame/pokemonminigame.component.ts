@@ -47,7 +47,7 @@ export class PokemonminigameComponent implements OnInit {
 
   charizard: pokemon = {
 
-    Name: '',
+    name: '',
     Hp: 100,
     imgUrl: '',
     UserId: 0 ,
