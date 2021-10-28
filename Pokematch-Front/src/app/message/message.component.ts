@@ -4,6 +4,7 @@ import { PokeApiService } from '../service/poke-api.service';
 import { user } from '../models/user';
 import { AuthService } from '@auth0/auth0-angular';
 import { message } from '../models/message';
+import { match } from '../models/match';
 var globalEmail: string;
 
 
@@ -30,6 +31,8 @@ export class MessageComponent implements OnInit {
   myUser: string;
   myUserId: number;
   myUserBody: message[];
+
+  matchList: match[];
 
   message: message = {
     toUser: '',
@@ -113,13 +116,29 @@ export class MessageComponent implements OnInit {
       let string = (<HTMLInputElement>document.querySelector("#sendMsg")).value;
       if (string.trim() != "")
       {
-        
-        this.message.toUser = this.selectedUser;
-        this.message.fromUser = this.myUser;
-        this.message.send = string;
-        console.log(this.message);
-        //this is not ready yet! remove after confirming ^^^^^
-        //this.UserService.postMessage(this.message)
+        // look through match list
+        this.UserService.getMatchList().then(result => {
+          this.matchList = result;
+          for (let i = 0; i < this.matchList.length; i++)
+          {
+
+            // if userId == myuserId && userId2 == selecteduserId
+            if (this.matchList[i].userId == this.myUserId && this.matchList[i].userId2 == this.selectedUserId)
+            {
+
+              this.message.matchId = this.matchList[i].id
+              this.message.toUser = this.selectedUser;
+              this.message.fromUser = this.myUser;
+              this.message.send = string;
+              console.log(this.message);
+              //this is not ready yet! remove after confirming ^^^^^
+              //this.UserService.postMessage(this.message)
+
+            }
+
+          }
+
+        })
       }
     }
     this.pingUser();
