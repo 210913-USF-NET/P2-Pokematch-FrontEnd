@@ -4,6 +4,7 @@ import { pokemon } from '../../app/models/pokemon';
 import { user } from '../models/user';
 import { PokeApiService } from '../service/poke-api.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { UserCreationService } from '../service/user-creation.service';
 
 var pokelist: string[] = [];
 var pokenames: string [] = [];
@@ -19,7 +20,7 @@ var bao: string;
 })
 export class PokemonComponent implements OnInit {
 
-  constructor(private router: Router, private UserService: PokeApiService, public auth: AuthService) { }
+  constructor(private router: Router, private pokeService: PokeApiService, private userService: UserCreationService, public auth: AuthService) { }
 
   userlist: user[] = [];
 
@@ -46,16 +47,21 @@ export class PokemonComponent implements OnInit {
     this.auth.user$.subscribe(
       (profile) => (bao = profile.email),
     );
-    this.UserService.getUserList().then(result => {
+    this.pokeService.getUserList().then(result => {
       this.userlist = result;
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].email == bao) {
           this.user.id = this.userlist[i].id;
-          this.UserService.getUserById(this.user.id).then(user => {
+          this.pokeService.getUserById(this.user.id).then(user => {
             this.user = user;
-            if(this.user.profilepic != '')
+            console.log(this.userService.changeProfile)
+            if(this.user.profilepic != '' && this.userService.changeProfile == false)
            {
            document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
+           }
+
+           else if (this.userService.changeProfile == true) {
+             document.getElementById('directions').innerHTML = "Welcome, please select a pokemon for your profile picture!"
            }
           });
         }
@@ -67,6 +73,7 @@ export class PokemonComponent implements OnInit {
     }
   }
 
+  
 
   getPokemon(name: number) {
     let pokeUrl = 'https://pokeapi.co/api/v2/pokemon/' + name;
@@ -103,21 +110,45 @@ export class PokemonComponent implements OnInit {
   }
 
   selectedPokemon(net: number) {
-    if (this.user.profilepic == '') {
+    if (this.userService.changeProfile == true) {
       this.auth.user$.subscribe(
         (profile) => (bao = profile.email),
       );
-      this.UserService.getUserList().then(result => {
+      this.pokeService.getUserList().then(result => {
         this.userlist = result;
         for (let i = 0; i < this.userlist.length; i++) {
           if (this.userlist[i].email == bao) {
             this.user.id = this.userlist[i].id;
-            this.UserService.getUserById(this.user.id).then(user => {
+            this.pokeService.getUserById(this.user.id).then(user => {
+              this.user = user;
+              console.log(user);
+              this.user.profilepic = '<img src="' + pokelist[net - 1] + '" />'; 
+              this.pokeService.updateUser(user)
+              
+              alert("You have chosen " + pokenames[net - 1] + " for your profile picture!");
+              this.userService.changeProfile = false
+              this.router.navigate(['userprofile'])
+            });
+          }
+        }
+        return;
+      })
+    }
+    if (this.user.profilepic == '') {
+      this.auth.user$.subscribe(
+        (profile) => (bao = profile.email),
+      );
+      this.pokeService.getUserList().then(result => {
+        this.userlist = result;
+        for (let i = 0; i < this.userlist.length; i++) {
+          if (this.userlist[i].email == bao) {
+            this.user.id = this.userlist[i].id;
+            this.pokeService.getUserById(this.user.id).then(user => {
               this.user = user;
               console.log(user);
               this.user.profilepic = '<img src="' + pokelist[net - 1] + '" />';
               document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
-              this.UserService.updateUser(user)
+              this.pokeService.updateUser(user)
 
               if (this.user.pokemons[2] != null) {
                 this.router.navigate(['userprofile'])
@@ -133,34 +164,36 @@ export class PokemonComponent implements OnInit {
       document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
       return;
     }
-    this.auth.user$.subscribe(
-      (profile) => (bao = profile.email),
-    );
-    this.UserService.getUserList().then(result => {
-      this.userlist = result;
-      console.log(this.userlist);
-      for (let i = 0; i < this.userlist.length; i++) {
-        if (this.userlist[i].email == bao) {
-          this.user.id = this.userlist[i].id;
-          this.UserService.getUserById(this.user.id).then(user => {
-            this.user = user;
-            if(this.user.pokemons[2] == undefined)
-            {
-            this.charizard.UserId = this.user.id;
-            this.charizard.name = pokenames[net - 1];
-            this.charizard.imgUrl = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
-            this.UserService.addPokemon(this.charizard)
-            alert("You have selected " + pokenames[net - 1])
-            favoritepokemon.push(pokelist[net - 1]);
-            return;
-            }
-            else{
-            alert("You may only select 3 favorite pokemon");
-            }
-          });
+    if (this.userService.changeProfile == false) {
+      this.auth.user$.subscribe(
+        (profile) => (bao = profile.email),
+      );
+      this.pokeService.getUserList().then(result => {
+        this.userlist = result;
+        console.log(this.userlist);
+        for (let i = 0; i < this.userlist.length; i++) {
+          if (this.userlist[i].email == bao) {
+            this.user.id = this.userlist[i].id;
+            this.pokeService.getUserById(this.user.id).then(user => {
+              this.user = user;
+              if(this.user.pokemons[2] == undefined)
+              {
+              this.charizard.UserId = this.user.id;
+              this.charizard.name = pokenames[net - 1];
+              this.charizard.imgUrl = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
+              this.pokeService.addPokemon(this.charizard)
+              alert("You have selected " + pokenames[net - 1])
+              favoritepokemon.push(pokelist[net - 1]);
+              return;
+              }
+              else{
+              alert("You may only select 3 favorite pokemon");
+              }
+            });
+          }
         }
-      }
-    })
+      })
+    }
     // this.route.navigate(['/pokemonselection'])
   }
 
@@ -198,17 +231,17 @@ export class PokemonComponent implements OnInit {
         this.auth.user$.subscribe(
           (profile) => (bao = profile.email),
         );
-      this.UserService.getUserList().then(result => {
+      this.pokeService.getUserList().then(result => {
         this.userlist = result;
         console.log(this.userlist);
         for (let i = 0; i < this.userlist.length; i++) {
           if (this.userlist[i].email == bao) {
             this.user.id = this.userlist[i].id;
-            this.UserService.getUserById(this.user.id).then(user => {
+            this.pokeService.getUserById(this.user.id).then(user => {
               this.user = user;
               this.user.profilepic = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
               document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
-              this.UserService.updateUser(user)
+              this.pokeService.updateUser(user)
             });
           }
         }
@@ -221,20 +254,20 @@ export class PokemonComponent implements OnInit {
     this.auth.user$.subscribe(
       (profile) => (bao = profile.email),
     );
-    this.UserService.getUserList().then(result => {
+    this.pokeService.getUserList().then(result => {
       this.userlist = result;
       console.log(this.userlist);
       for (let i = 0; i < this.userlist.length; i++) {
         if (this.userlist[i].email == bao) {
           this.user.id = this.userlist[i].id;
-          this.UserService.getUserById(this.user.id).then(user => {
+          this.pokeService.getUserById(this.user.id).then(user => {
             this.user = user;
             if(this.user.pokemons[2] == undefined)
             {
             this.charizard.UserId = this.user.id;
             this.charizard.name = pokenames[z - 1];
             this.charizard.imgUrl = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
-            this.UserService.addPokemon(this.charizard)
+            this.pokeService.addPokemon(this.charizard)
             alert("You have selected " + pokenames[z - 1])
             favoritepokemon.push(pokelist[z - 1]);
             return;
