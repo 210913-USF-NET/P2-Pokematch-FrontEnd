@@ -31,6 +31,8 @@ export class UserProfileComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.userService.changeProfile = false;
+    this.userService.pokemonfavoritechange = null;
     this.auth.user$.subscribe(
       (profile) => (wtf = profile.email),
     );
@@ -68,18 +70,21 @@ export class UserProfileComponent implements OnInit {
     ChangeFavorite(select: number)
     {
       if(select == 1){
-      select = this.user.pokemons[0].id
-      this.pokeService.deletePokemon(select);
+        this.userService.pokemonfavoritechange = select -1;
+      // select = this.user.pokemons[0].id
+      // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 2){
-        select = this.user.pokemons[1].id
-        this.pokeService.deletePokemon(select);
+        this.userService.pokemonfavoritechange = select -1;
+        // select = this.user.pokemons[1].id
+        // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
       else if(select == 3){
-        select = this.user.pokemons[2].id
-        this.pokeService.deletePokemon(select);
+        this.userService.pokemonfavoritechange = select -1;
+        // select = this.user.pokemons[2].id
+        // this.UserService.deletePokemon(select);
       this.router.navigate(['pokemon'])
       }
     }
@@ -87,7 +92,6 @@ export class UserProfileComponent implements OnInit {
     ChangeProfilePicture()
     {
       this.userService.changeProfile = true
-      this.pokeService.updateUser(this.user);
       this.router.navigate(['pokemon']);
     }
 
