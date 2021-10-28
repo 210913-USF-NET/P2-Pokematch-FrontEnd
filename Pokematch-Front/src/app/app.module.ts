@@ -17,6 +17,8 @@ import { MessageComponent } from './message/message.component';
 import { BufferComponent } from './buffer/buffer.component';
 import { MatchComponent } from './match/match.component';
 import { GetMatchComponent } from './get-match/get-match.component';
+import { PokemonminigameComponent } from './pokemonminigame/pokemonminigame.component';
+import { MovesComponent } from './moves/moves.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { GetMatchComponent } from './get-match/get-match.component';
     BufferComponent,
     MatchComponent,
     GetMatchComponent,
+    PokemonminigameComponent,
+    MovesComponent,
   ],
   imports: [
     FormsModule,
