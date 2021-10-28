@@ -53,19 +53,17 @@ export class UserProfileComponent implements OnInit {
             }
             document.getElementById('profilepic').innerHTML = this.user.profilepic;
             document.getElementById('yup').innerHTML = this.user.profilepic;
+
+            for(let i = 0; i < 4 ; i++)
+            {
+              document.getElementById('favorite'+[i + 1]).innerHTML = this.user.pokemons[i].imgUrl;
+              document.getElementById('favorite'+[i + 1] + '-name').innerHTML = this.user.pokemons[i].name
+            }
           });
         }
       }
     })
   };
-
-    Favorites()
-    {
-      for(let i = 1; i <= 3 ; i++)
-      {
-        document.getElementById('favorite'+[i]).innerHTML = this.user.pokemons[i-1].imgUrl;
-      }
-    }
 
     ChangeFavorite(select: number)
     {
@@ -93,8 +91,15 @@ export class UserProfileComponent implements OnInit {
       this.router.navigate(['pokemon']);
     }
 
-    Battle()
+    Battle(id: number)
     {
+      for(let i = 1; i <=3; i++)
+      {
+        if(i == id)
+        {
+          this.userService.selectedpokemon = id-1;
+        }
+      }
       this.router.navigate(['pokemonminigame']);
     }
 }

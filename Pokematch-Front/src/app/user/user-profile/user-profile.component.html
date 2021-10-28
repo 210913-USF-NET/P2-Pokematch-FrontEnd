@@ -2,7 +2,6 @@
     <div class="wrapper">
         <div class="container mt-5 d-flex justify-content-center">
             <div class="card p-3">
-
                 <div class="ml-3 w-100">
                     <div class="d-flex justify-content-center">
                         <div class="fire" *ngIf="user.element == 'Fire'">
@@ -27,28 +26,36 @@
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
                             <button class="btn btn-sm btn-outline-info w-100" id="Changeprofilepic"
                                 (click)="ChangeProfilePicture()">Change Profile Picture</button>
-                            <button class="btn btn-sm btn-outline-info w-100" id="favorites" (click)="Favorites()">My
-                                favorite pokemon</button>
+                            
                         </div>
                     </div>
 
-
-
-                    <ol>
-                        <li>
-                            <p id="favorite1"></p><button (click)="ChangeFavorite(1)">Change favorite</button><button
-                                (click)="Battle()">Battle</button>
-                        </li>
-                        <li>
-                            <p id="favorite2"></p><button (click)="ChangeFavorite(2)">Change favorite</button><button
-                                (click)="Battle()">Battle</button>
-                        </li>
-                        <li>
-                            <p id="favorite3"></p><button (click)="ChangeFavorite(3)">Change favorite</button><button
-                                (click)="Battle()">Battle</button>
-                        </li>
-                    </ol>
-
+                    <br>
+                    <br>
+                    
+                    <div style="display: flex; justify-content: center;">
+                        <ol>
+                            <li>
+                                <p id="favorite1"></p>
+                                <p id="favorite1-name"></p>
+                                <button (click)="ChangeFavorite(1)">Change favorite</button>
+                                <button (click)="Battle(1)">Battle</button>
+                            </li>
+                            <li>
+                                <p id="favorite2"></p>
+                                <p id="favorite2-name"></p>
+                                <button (click)="ChangeFavorite(2)">Change favorite</button>
+                                <button (click)="Battle(2)">Battle</button>
+                                    
+                            </li>
+                            <li>
+                                <p id="favorite3"></p>
+                                <p id="favorite3-name"></p>
+                                <button (click)="ChangeFavorite(3)">Change favorite</button>
+                                <button (click)="Battle(3)">Battle</button>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
