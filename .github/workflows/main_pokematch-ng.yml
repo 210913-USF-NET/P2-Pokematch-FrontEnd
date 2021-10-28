@@ -12,9 +12,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Pokematch-Front
 
     steps:
       - uses: actions/checkout@main
@@ -28,7 +25,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-        working-directory: .
+        working-directory: ./Pokematch-Front
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
