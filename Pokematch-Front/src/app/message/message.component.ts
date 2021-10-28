@@ -6,6 +6,20 @@ import { AuthService } from '@auth0/auth0-angular';
 import { message } from '../models/message';
 var wtf: string;
 
+
+var user2: user = {
+  id: 0,
+  username: '',
+  email: '',
+  gender: '',
+  interest: '',
+  profilepic: '',
+  element: '',
+
+  matches: [],
+  pokemons: [],
+};
+
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
@@ -35,18 +49,6 @@ export class MessageComponent implements OnInit {
     pokemons: [],
   };
 
-  user2: user = {
-    id: 0,
-    username: '',
-    email: '',
-    gender: '',
-    interest: '',
-    profilepic: '',
-    element: '',
-
-    matches: [],
-    pokemons: [],
-  };
 
 
   ngOnInit(): void {
@@ -61,12 +63,13 @@ export class MessageComponent implements OnInit {
           this.UserService.getUserById(this.user.id).then(user => {
               this.user = user;
               for (let i = 0; i < this.user.matches.length; i++) {
-                this.UserService.getUserById(this.user.matches[i].userId2).then(user2 => {
-                  this.user2 = user2;
+                this.UserService.getUserById(this.user.matches[i].userId2).then(userSecond => {
+                  console.log(userSecond);
+                  user2 = userSecond;
                 })
-                console.log(this.user2)
+                console.log(user2)
                 let isMatched: boolean = false;
-                this.user2.matches.forEach(e => {
+                user2.matches.forEach(e => {
                   console.log(e.userId2)
                   console.log(user.id)
                   if(e.userId2 == this.user.id)
@@ -74,10 +77,9 @@ export class MessageComponent implements OnInit {
                     isMatched = true;
                   }
                 })
-                // if user2 matches this.user.matches
-                // then push the user name matches into fromUser
+
                 if (isMatched && this.user.id == this.user.matches[i].userId)
-                { //instead of this ^^^^
+                {
                   this.fromUser.push(this.user.matches[i].name);
                 }
               }
@@ -97,6 +99,5 @@ export class MessageComponent implements OnInit {
 
   selectUser(userName): void {
     this.selectedUser = userName;
-    // run logic where it will replace matches.message with the selected user name
   }
 }
