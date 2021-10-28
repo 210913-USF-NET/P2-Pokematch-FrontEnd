@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { element } from '../models/element';
 import { user } from '../models/user';
+import { match } from '../models/match';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { user } from '../models/user';
 export class PokeApiService {
   rootUrl: string = 'https://pokematch.azurewebsites.net/api/element';
   userUrl: string = 'https://pokematch.azurewebsites.net/api/user';
+  matchUrl: string = 'https://pokematch.azurewebsites.net/api/match';
 
   globalid: number;
   /* Dependency injection. */
@@ -38,6 +40,11 @@ export class PokeApiService {
   UpdateUser(user: user): Promise<user>
   {
     return this.http.put<user>(this.userUrl + '/' + this.globalid, user).toPromise();
+  }
+
+  AddMatch(match: match): Promise<match>
+  {
+    return this.http.post<match>(this.matchUrl, match).toPromise();
   }
 
 

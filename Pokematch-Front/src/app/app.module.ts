@@ -16,6 +16,7 @@ import { UserCreationComponent } from './user/user-creation/user-creation.compon
 import { MessageComponent } from './message/message.component';
 import { BufferComponent } from './buffer/buffer.component';
 import { MatchComponent } from './match/match.component';
+import { GetMatchComponent } from './get-match/get-match.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatchComponent } from './match/match.component';
     UserCreationComponent,
     MessageComponent,
     BufferComponent,
-    MatchComponent
+    MatchComponent,
+    GetMatchComponent,
   ],
   imports: [
     FormsModule,
