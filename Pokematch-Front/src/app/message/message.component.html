@@ -4,36 +4,31 @@
       <a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         <span class="fs-5 fw-semibold">Messages</span>
       </a>
-<!--       <div class="list-group list-group-flush border-bottom scrollarea">
-        <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
-          <div class="d-flex w-100 align-items-center justify-content-between">
-            This NEEDS to change to "fromUser array", but for now, it will display userList array
-            <strong class="mb-1">{{userlist[0].username}}</strong>
-          </div>
-          <div class="col-10 mb-1 small">Thanks me too</div>
-        </a>
-      </div> -->
 
       <!-- This needs to be changed to the matchArray -->
-        <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let user of userlist; let i = index;">
+        <div class="list-group list-group-flush border-bottom scrollarea" *ngFor="let user of fromUser; let i = index;" (click)="selectUser(fromUser[i])">
         <a class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
           <div class="d-flex w-100 align-items-center justify-content-between">
-            <strong class="mb-1">{{userlist[i].username}}</strong>
+            <strong class="mb-1" id={{fromUser[i]}}>{{fromUser[i]}}</strong>
           </div>
-          <div class="col-10 mb-1 small">Thanks me too</div>
+          <div class="col-10 mb-1 small">yes</div>
         </a>
       </div>
       <!-- ^^^This needs to be changed to the matchArray^^^ -->
 
     </div>
+
     <div class="col mt-1">
+      <div>
+        <h3>{{selectedUser}}</h3>
+      </div>
       <div class="card">
-        <div class="card-body" id="msgBody">
-          <div class="col text-left">
-            <p>Hey there I really like your Pokemon</p>
+        <div class="card-body" *ngFor="let match of user.matches;">
+          <div class="col text-left" *ngFor="let msg of match.messages">
+            <p *ngIf="selectedUser == match.name">{{msg.send}}</p>
           </div>
           <div class="col text-right">
-            <p>Thanks me too</p>
+            <p>yes (i'm a placeholder)</p>
           </div>
         </div>
       </div>
