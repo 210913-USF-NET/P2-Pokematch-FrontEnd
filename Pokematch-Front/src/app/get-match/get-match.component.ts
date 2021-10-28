@@ -82,19 +82,24 @@ export class GetMatchComponent implements OnInit {
               isMatched = true;
             }
           });
-          if(!isMatched && user.elementId == aUser.elementId && user.id != aUser.id && (user.gender == aUser.interest || aUser.interest == "o") && (user.interest == aUser.gender || user.interest == "o"))
+
+          if(!isMatched && user.id != aUser.id && (user.gender == aUser.interest || aUser.interest == "o") && (user.interest == aUser.gender || user.interest == "o"))
           {
-            if(user.pokemons[0] == aUser.pokemons[0] || user.pokemons[0] == aUser.pokemons[1] || user.pokemons[0] == aUser.pokemons[2])
+            console.log(user.pokemons[1])
+            console.log(aUser.pokemons[1])
+            console.log(user.pokemons[1].name)
+            console.log(aUser.pokemons[1].name)
+            if(user.pokemons[0].name == aUser.pokemons[0].name || user.pokemons[0].name == aUser.pokemons[1].name || user.pokemons[0].name == aUser.pokemons[2].name)
             {
               this.userlist[count] = user;
               count++;
             }
-            else if(user.pokemons[1] == aUser.pokemons[0] || user.pokemons[1] == aUser.pokemons[1] || user.pokemons[1] == aUser.pokemons[2])
+            else if(user.pokemons[1].name == aUser.pokemons[0].name || user.pokemons[1].name == aUser.pokemons[1].name || user.pokemons[1].name == aUser.pokemons[2].name)
             {
               this.userlist[count] = user;
               count++;
             }
-            else if(user.pokemons[2] == aUser.pokemons[0] || user.pokemons[2] == aUser.pokemons[1] || user.pokemons[2] == aUser.pokemons[2])
+            else if(user.pokemons[2].name == aUser.pokemons[0].name || user.pokemons[2].name == aUser.pokemons[1].name || user.pokemons[2].name == aUser.pokemons[2].name)
             {
               this.userlist[count] = user;
               count++;

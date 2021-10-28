@@ -36,7 +36,7 @@ export class PokemonComponent implements OnInit {
 
   charizard: pokemon = {
 
-    Name: '',
+    name: '',
     Hp: 100,
     imgUrl: '',
     UserId: 0 ,
@@ -143,7 +143,7 @@ export class PokemonComponent implements OnInit {
             if(this.user.pokemons[2] == undefined)
             {
             this.charizard.UserId = this.user.id;
-            this.charizard.Name = pokenames[net - 1];
+            this.charizard.name = pokenames[net - 1];
             this.charizard.imgUrl = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
             this.UserService.addPokemon(this.charizard)
             alert("You have selected " + pokenames[net - 1])
@@ -229,7 +229,7 @@ export class PokemonComponent implements OnInit {
             if(this.user.pokemons[2] == undefined)
             {
             this.charizard.UserId = this.user.id;
-            this.charizard.Name = pokenames[z - 1];
+            this.charizard.name = pokenames[z - 1];
             this.charizard.imgUrl = '<img src="' + pokelist[z - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
             this.UserService.addPokemon(this.charizard)
             alert("You have selected " + pokenames[z - 1])
