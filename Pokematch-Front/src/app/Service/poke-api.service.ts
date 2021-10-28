@@ -49,7 +49,8 @@ export class PokeApiService {
 
   DeletePokemon(id: number): Promise<pokemon>
   {
-    return this.http.get<pokemon>(this.pokeUrl +'/'+id).toPromise();
+    return this.http.delete<pokemon>(this.pokeUrl+'/'+id).toPromise();
   }
+
 }
 

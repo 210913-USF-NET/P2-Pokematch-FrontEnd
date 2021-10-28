@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PokeApiService } from '../../service/poke-api.service';
 import { user } from '../../models/user';
 import { AuthService } from '@auth0/auth0-angular';
+import { Router } from '@angular/router';
 import { pokemon } from 'src/app/models/pokemon';
 
 var wtf: string;
@@ -13,7 +14,7 @@ var wtf: string;
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService) { }
+  constructor(public auth: AuthService, private currentRoute: ActivatedRoute, private UserService: PokeApiService, private router: Router) { }
 
   userlist: user[] = [];
 
@@ -51,13 +52,37 @@ export class UserProfileComponent implements OnInit {
             }
             document.getElementById('profilepic').innerHTML = this.user.profilepic;
             document.getElementById('yup').innerHTML = this.user.profilepic;
-            document.getElementById('favorites').innerHTML = this.user.pokemons[14].imgUrl
             console.log(user);
-            console.log(user.pokemons[13].imgUrl);
           });
         }
       }
     })
   };
 
+    Favorites()
+    {
+      for(let i = 1; i <= 3 ; i++)
+      {
+        document.getElementById('favorite'+[i]).innerHTML = this.user.pokemons[i-1].imgUrl;
+      }
+    }
+
+    ChangeFavorite(select: number)
+    {
+      if(select == 1){
+       select = this.user.pokemons[0].id
+       this.UserService.DeletePokemon(select);
+       this.router.navigate(['pokemon'])
+      }
+      else if(select == 2){
+        select = this.user.pokemons[1].id
+        this.UserService.DeletePokemon(select);
+       this.router.navigate(['pokemon'])
+       }
+       else if(select == 3){
+        select = this.user.pokemons[2].id
+        this.UserService.DeletePokemon(select);
+       this.router.navigate(['pokemon'])
+       }
+    }
 }
