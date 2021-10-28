@@ -66,22 +66,23 @@ export class MessageComponent implements OnInit {
                 this.UserService.getUserById(this.user.matches[i].userId2).then(userSecond => {
                   console.log(userSecond);
                   user2 = userSecond;
-                })
-                console.log(user2)
-                let isMatched: boolean = false;
-                user2.matches.forEach(e => {
-                  console.log(e.userId2)
-                  console.log(user.id)
-                  if(e.userId2 == this.user.id)
+
+                  console.log(user2)
+                  let isMatched: boolean = false;
+                  user2.matches.forEach(e => {
+                    console.log(e.userId2)
+                    console.log(user.id)
+                    if(e.userId2 == this.user.id)
+                    {
+                      isMatched = true;
+                    }
+                  })
+
+                  if (isMatched && this.user.id == this.user.matches[i].userId)
                   {
-                    isMatched = true;
+                    this.fromUser.push(this.user.matches[i].name);
                   }
                 })
-
-                if (isMatched && this.user.id == this.user.matches[i].userId)
-                {
-                  this.fromUser.push(this.user.matches[i].name);
-                }
               }
               this.selectedUser = this.fromUser[0];
               console.log(this.selectedUser);
