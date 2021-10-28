@@ -115,8 +115,9 @@ export class PokemonComponent implements OnInit {
             this.UserService.getUserById(this.user.id).then(user => {
               this.user = user;
               console.log(user);
-              this.user.profilepic = '<img src="' + pokelist[net - 1] + '" /><img src="' + 'width = "50"' + 'height="50"';
+              this.user.profilepic = '<img src="' + pokelist[net - 1] + '" />';
               document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
+              this.router.navigate(['userprofile']);
               this.UserService.updateUser(user)
             });
           }
@@ -152,7 +153,6 @@ export class PokemonComponent implements OnInit {
             }
             else{
             alert("You may only select 3 favorite pokemon");
-            this.router.navigate(['userprofile']);
             }
           });
         }

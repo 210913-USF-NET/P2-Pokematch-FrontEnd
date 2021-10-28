@@ -37,3 +37,7 @@
     width: 20%;
     height: auto;
 }
+
+.image > img {
+    width: 1000;
+}

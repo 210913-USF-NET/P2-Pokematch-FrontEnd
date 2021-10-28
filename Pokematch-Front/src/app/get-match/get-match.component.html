@@ -10,8 +10,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of userlist">
-                <td>{{user.username}}</td>
-                <button  type="button" class="btn btn-info" (click)="Match(user)">Match</button>
+                <td>{{user.username}}
+                    <button  type="button" class="btn btn-info" (click)="Match(user)">Match</button>
+                </td>
+                
             </tr>
         </tbody>
     </table>
