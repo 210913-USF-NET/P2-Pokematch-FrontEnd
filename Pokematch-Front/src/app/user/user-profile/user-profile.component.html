@@ -1,27 +1,28 @@
 <body>
-<div class="wrapper">
-    <div class="container mt-5 d-flex justify-content-center">
-        <div class="card p-3">
-        
+    <div class="wrapper">
+        <div class="container mt-5 d-flex justify-content-center">
+            <div class="card p-3">
+
                 <div class="ml-3 w-100">
-                <div class="d-flex justify-content-center">
-                    <div class="fire" *ngIf="user.element == 'Fire'">
-                        <img
-                            src="https://www.clipartmax.com/png/full/83-830894_fire-type-pokemon-symbol-pokemon-fire-type-logo.png">
-                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="fire" *ngIf="user.element == 'Fire'">
+                            <img
+                                src="https://www.clipartmax.com/png/full/83-830894_fire-type-pokemon-symbol-pokemon-fire-type-logo.png">
+                        </div>
 
-                    <div class="grass" *ngIf="user.element == 'Grass'">
-                        <img
-                            src="https://www.clipartmax.com/png/full/322-3228843_pokemon-type-symbols-download-grass-type-pokemon-icon.png">
-                    </div>
+                        <div class="grass" *ngIf="user.element == 'Grass'">
+                            <img
+                                src="https://www.clipartmax.com/png/full/322-3228843_pokemon-type-symbols-download-grass-type-pokemon-icon.png">
+                        </div>
 
-                    <div class="water" *ngIf="user.element == 'Water'">
-                        <img src="https://www.clipartmax.com/png/full/26-261578_pokemon-water-type-symbol.png">
-                    </div>
+                        <div class="water" *ngIf="user.element == 'Water'">
+                            <img src="https://www.clipartmax.com/png/full/26-261578_pokemon-water-type-symbol.png">
+                        </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                    <h1 class="mb-0 mt-0">{{user.username}}</h1><div class="image" id="yup" class="rounded"></div>
+                        <h1 class="mb-0 mt-0">{{user.username}}</h1>
                     </div>
+<<<<<<< HEAD
 
                         <div class="d-flex justify-content-center">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -36,6 +37,21 @@
 
                     
                 <ol>
+=======
+                    <div class="image" id="yup" class="rounded" style="display: flex; justify-content: center;"></div>
+                    <div class="d-flex justify-content-center">
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <button class="btn btn-sm btn-outline-info w-100" id="Changeprofilepic"
+                                (click)="ChangeProfilePicture()">Change Profile Picture</button>
+                            <button class="btn btn-sm btn-outline-info w-100" id="favorites" (click)="Favorites()">My
+                                favorite pokemon</button>
+                        </div>
+                    </div>
+
+
+
+                    <ol>
+>>>>>>> 143084f33bcc37e91632f2520902c8aecacfc13b
                         <li>
                             <p id="favorite1"></p><button (click)="ChangeFavorite(1)">Change favorite</button><button
                                 (click)="Battle()">Battle</button>
@@ -49,9 +65,8 @@
                                 (click)="Battle()">Battle</button>
                         </li>
                     </ol>
-                
+
                 </div>
             </div>
         </div>
     </div>
-
