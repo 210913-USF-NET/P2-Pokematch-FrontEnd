@@ -54,9 +54,9 @@ export class PokemonComponent implements OnInit {
           this.UserService.getUserById(this.user.id).then(user => {
             this.user = user;
             if(this.user.profilepic != '')
-           {
-           document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
-           }
+          {
+          document.getElementById('directions').innerHTML = "Please select your top 3 favortite pokemon! The first selection being your favorite and the third selection being your 3rd favorite."
+          }
           });
         }
       }
