@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ElementListComponent } from './element-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from '@auth0/auth0-angular';
+import auth_config from '../../../../auth_config.json';
 
 describe('ElementListComponent', () => {
   let component: ElementListComponent;
@@ -8,7 +10,14 @@ describe('ElementListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ElementListComponent ]
+      imports: [HttpClientModule,
+        AuthModule.forRoot(
+          {
+              domain: auth_config.domain,
+              clientId: auth_config.clientId
+        }
+        )],
+      declarations: [ ElementListComponent]
     })
     .compileComponents();
   });
