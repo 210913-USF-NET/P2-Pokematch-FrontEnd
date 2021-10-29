@@ -35,7 +35,7 @@ import { MovesComponent } from './moves/moves.component';
     MatchComponent,
     GetMatchComponent,
     PokemonminigameComponent,
-    MovesComponent,
+    MovesComponent
   ],
   imports: [
     FormsModule,
@@ -45,13 +45,7 @@ import { MovesComponent } from './moves/moves.component';
     AppRoutingModule,
     AuthModule.forRoot({
       ... env.auth,
-    }),
-
-    FormsModule,
-    ReactiveFormsModule,
-
-    /* Need to import so service API can be use. */
-    HttpClientModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

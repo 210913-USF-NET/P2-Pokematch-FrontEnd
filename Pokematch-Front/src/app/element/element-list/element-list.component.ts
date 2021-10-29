@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from '../../models/element';
 import { PokeApiService } from 'src/app/service/poke-api.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -10,7 +9,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./element-list.component.css']
 })
 export class ElementListComponent implements OnInit {
-  constructor(private currRoute: ActivatedRoute, private pokeService: PokeApiService, private auth: AuthService) {}
+  constructor(private pokeService: PokeApiService, private auth: AuthService) {}
 
   elements: element[] = [];
   flag: boolean = false

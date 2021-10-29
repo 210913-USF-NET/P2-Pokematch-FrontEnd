@@ -3,9 +3,10 @@
         <div class="col-mid-4 mb-3">
             <div class="input-group form-group">
                 <div>
-                    <img id="i-chose-you" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0cd82ff4-fa94-4020-9a16-f41089efc593/ddsr6rc-39753e43-2c92-4cfc-a622-bbd52fb7ff78.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBjZDgyZmY0LWZhOTQtNDAyMC05YTE2LWY0MTA4OWVmYzU5M1wvZGRzcjZyYy0zOTc1M2U0My0yYzkyLTRjZmMtYTYyMi1iYmQ1MmZiN2ZmNzgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.B_x3keFwlFTpmaupp1OKGifVwtE9p1qTX-XrQoYaHNI">
+                    <img id="i-chose-you" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0cd82ff4-fa94-4020-9a16-f41089efc593/ddsr6rc-39753e43-2c92-4cfc-a622-bbd52fb7ff78.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBjZDgyZmY0LWZhOTQtNDAyMC05YTE2LWY0MTA4OWVmYzU5M1wvZGRzcjZyYy0zOTc1M2U0My0yYzkyLTRjZmMtYTYyMi1iYmQ1MmZiN2ZmNzgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.B_x3keFwlFTpmaupp1OKGifVwtE9p1qTX-XrQoYaHNI"/>
                     <input type="text" class="form-control" [formControl]="username" placeholder="username"
-                      [class.is-invalid]="username.invalid && username.errors?.userExists" required>
+                        [class.is-invalid]="username.invalid && username.errors?.userExists"
+                        [class.is-valid]="username.valid" required>
 
                     <div class="invalid-feedback">
                         Username already exists

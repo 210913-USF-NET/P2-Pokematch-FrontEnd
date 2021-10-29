@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { QuizFormComponent } from './quiz-form.component';
 
 describe('QuizFormComponent', () => {
@@ -8,7 +8,7 @@ describe('QuizFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuizFormComponent ]
+      declarations: [ QuizFormComponent, RouterTestingModule]
     })
     .compileComponents();
   });
