@@ -8,7 +8,7 @@ describe('QuizFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuizFormComponent, RouterTestingModule]
+      declarations: [ RouterTestingModule, QuizFormComponent ]
     })
     .compileComponents();
   });
