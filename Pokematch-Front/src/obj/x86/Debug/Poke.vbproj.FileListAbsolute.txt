@@ -1,0 +1,2 @@
+Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\src\obj\x86\Debug\Poke.vbproj.AssemblyReference.cache
+Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\src\obj\x86\Debug\Poke.vbproj.CoreCompileInputs.cache

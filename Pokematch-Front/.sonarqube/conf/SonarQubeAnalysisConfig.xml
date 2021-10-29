@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AnalysisConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+<AnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
   <SonarConfigDir>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf</SonarConfigDir>
   <SonarOutputDir>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\out</SonarOutputDir>
   <SonarBinDir>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\bin</SonarBinDir>
@@ -11,7 +11,8 @@
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="TfsUri" />
-    <ConfigSetting Id="settings.file.path" Value="Z:\Coding\sonar\SonarQube.Analysis.xml" />
+    <ConfigSetting Id="VsCoverageConverterToolPath" />
+    <ConfigSetting Id="settings.file.path" Value="C:\Users\Karla\.dotnet\tools\.store\dotnet-sonarscanner\5.3.2\dotnet-sonarscanner\5.3.2\tools\net5.0\any\SonarQube.Analysis.xml" />
   </AdditionalConfig>
   <ServerSettings>
     <Property Name="sonaranalyzer-cs.nuget.packageVersion">8.29.0.36737</Property>
@@ -108,8 +109,8 @@
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>
-      <RuleSetFilePath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
+      <RulesetPath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\Sonar-cs.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\Sonar-cs-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.29.0.36737" StaticResourceName="SonarAnalyzer-8.29.0.36737.zip">
           <AssemblyPaths>
@@ -136,8 +137,8 @@
     </AnalyzerSettings>
     <AnalyzerSettings>
       <Language>vbnet</Language>
-      <RuleSetFilePath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
+      <RulesetPath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\Sonar-vbnet.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>Z:\Coding\Revature\P2-Karla-Rodriguez-Frontend\P2-Pokematch-Frontend\Pokematch-Front\.sonarqube\conf\Sonar-vbnet-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.29.0.36737" StaticResourceName="SonarAnalyzer-8.29.0.36737.zip">
           <AssemblyPaths>
