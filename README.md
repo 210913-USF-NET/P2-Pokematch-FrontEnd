@@ -8,10 +8,7 @@ Team Members
 - Larry Moua
 
 ### Proposal
-  Are you tired of being single? Do you love Pokemon? Are you just finding that your partner thinks Pickachu is the main character?
-  
-  WELL! Look no further for PokeMatch was designed by Revature top 1% to INNER JOIN love and Pokemon into one convenient web app.
-  
+  Pokematch is a single page web app meant to be a social platform for users to make long lasting connections in a fun, Pokemon themed, environment. Users who make an account can match with other users based on either the results their personality quiz, or their hand picked top three favorite Pokemon. When a user's match request is accepted, they can start messaging their partner and start forming meaningful relationships. Pokematch offers a communication heavy experience for users who find that other dating apps place too much emphasis on pictures, and not enough on conversation.
   
    
 ### Overview
